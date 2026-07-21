@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-ink text-paper font-body antialiased; }
+  h1, h2, h3, h4 { @apply font-display font-semibold text-paper; }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl leading-tight; }
+  h2 { @apply text-3xl md:text-4xl leading-tight mt-12 mb-6; }
+  h3 { @apply text-xl md:text-2xl mt-8 mb-4; }
+  p { @apply text-ash leading-relaxed mb-4; }
+  a { @apply text-thread hover:text-paper transition-colors duration-200; }
+  
+  :focus-visible { @apply outline-2 outline-thread outline-offset-2; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .thread-rail {
+    @apply relative pl-8 border-l-2 border-dashed border-thread;
+  }
+  .thread-node {
+    @apply absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-ink border-2 border-thread;
+  }
+  .timestamp {
+    @apply font-mono text-xs text-thread uppercase tracking-wider mb-1 block;
+  }
+  .chat-bubble {
+    @apply bg-ink/50 border border-ash/20 rounded-2xl rounded-tl-none p-4 max-w-[85%];
+  }
+  .chat-bubble.user {
+    @apply bg-thread/10 border-thread/30 ml-auto rounded-tr-none rounded-tl-2xl;
+  }
+}

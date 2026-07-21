@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+const steps = [
+  { name: 'Clone Repository', text: 'git clone https://github.com/personalai/self-hosted.git && cd personalai-selfhosted' },
+  { name: 'Environment Setup', text: 'cp .env.example .env && edit .env with your preferred LLM and database settings' },
+  { name: 'Start Services', text: 'docker compose up -d' },
+  { name: 'Access Dashboard', text: 'Open http://localhost:3000 in your browser' }
+];
+---
+<Layout title="Self-Host PersonalAI | personalai.cloud" description="Run your own private AI assistant with local LLMs and vector databases. 100% data privacy." schema="howto">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold mb-6">Self-Host Your Personal AI</h1>
+    <p class="text-xl text-slate-600 mb-8">
+      Believe in true data privacy? Run the entire <strong>personalai.cloud</strong> agent engine on your own hardware. 
+      Connect it to local models via Ollama and keep your memory vectors strictly on your machine.
+    </p>
+
+    <div class="bg-slate-900 text-slate-50 rounded-xl p-6 mb-8 overflow-x-auto">
+      <pre class="text-sm font-mono"><code># 1. Clone the repository
+git clone https://github.com/personalai/self-hosted.git
+cd personalai-selfhosted
+
+# 2. Copy environment variables
+cp .env.example .env
+
+# 3. (Optional) Point to your local Ollama instance
+# OLLAMA_BASE_URL=http://host.docker.internal:11434
+
+# 4. Start the platform
+docker compose up -d
+
+# 5. Access your private dashboard
+# Open http://localhost:3000</code></pre>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">What's Included in the Self-Hosted Stack?</h2>
+    <ul class="list-disc pl-6 space-y-3 text-slate-700 mb-8">
+      <li><strong>PostgreSQL + pgvector:</strong> For persistent, local memory storage.</li>
+      <li><strong>Redis:</strong> For background job queuing (BullMQ).</li>
+      <li><strong>Next.js Dashboard:</strong> Full UI for managing agents and memory.</li>
+      <li><strong>Agent Engine:</strong> LangChain-based RAG orchestrator, pre-configured for Ollama (Llama 3, Mistral) or OpenAI.</li>
+    </ul>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "Self-Host PersonalAI",
+      description: "Run your own private AI assistant with local LLMs and vector databases. 100% data privacy.",
+      url: "https://personalai.cloud/self-hosted",
+      image: "https://personalai.cloud/og-image.png",
+      estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
+      totalTime: "PT10M",
+      step: steps.map((step, i) => ({ "@type": "HowToStep", position: i + 1, name: step.name, text: step.text, url: `https://personalai.cloud/self-hosted#step-${i + 1}` })),
+      supply: [
+        { "@type": "HowToSupply", name: "Docker", url: "https://docker.com" },
+        { "@type": "HowToSupply", name: "Ollama (optional)", url: "https://ollama.ai" }
+      ]
+    })} />
+
+    <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 text-center">
+      <h3 class="text-xl font-bold text-indigo-900 mb-2">Prefer a Managed Solution?</h3>
+      <p class="text-indigo-700 mb-4">Get WhatsApp integration, Android sync, and zero-maintenance hosting starting at just ₹499/month.</p>
+      <a href="https://personalai.cloud/pricing" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+        View Managed Pricing
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+
+export interface Props { page: any; }
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    <div>
+      <h1>{page.title}</h1>
+      <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+      <div class="thread-rail space-y-6 mt-8">
+        <div class="relative">
+          <span class="thread-node"></span>
+          <span class="timestamp">Step 1</span>
+          <h3 class="text-xl font-semibold">Scan the QR Code</h3>
+          <p class="text-ash">Link your Personal AI to WhatsApp just like WhatsApp Web.</p>
+        </div>
+        <div class="relative">
+          <span class="thread-node"></span>
+          <span class="timestamp">Step 2</span>
+          <h3 class="text-xl font-semibold">Start Chatting</h3>
+          <p class="text-ash">Send a voice note or text. Your AI remembers context across sessions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-ink border border-ash/20 rounded-3xl p-6 shadow-2xl">
+      <div class="flex items-center gap-3 mb-6 border-b border-ash/20 pb-4">
+        <div class="w-10 h-10 rounded-full bg-whatsapp flex items-center justify-center text-ink font-bold">AI</div>
+        <div>
+          <div class="font-semibold text-paper">Personal AI</div>
+          <div class="text-xs text-whatsapp font-mono">online</div>
+        </div>
+      </div>
+      <div class="space-y-4 font-body text-sm">
+        <div class="chat-bubble user">
+          <p class="text-paper m-0">Remember to call the dentist tomorrow at 3 PM.</p>
+          <span class="text-[10px] text-ash block text-right mt-1 font-mono">10:42 AM</span>
+        </div>
+        <div class="chat-bubble">
+          <p class="text-paper m-0">Got it. I've added "Call dentist" to your calendar for tomorrow at 3:00 PM and set a reminder for 2:45 PM.</p>
+          <span class="text-[10px] text-ash block text-right mt-1 font-mono">10:42 AM</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

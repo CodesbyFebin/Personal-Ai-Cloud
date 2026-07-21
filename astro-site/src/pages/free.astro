@@ -1,0 +1,31 @@
+---
+import Layout from '.../layouts/Layout.astro';
+---
+<Layout title="Free Plan | personalai.cloud" description="Start for free with 1 AI agent and basic memory.">
+  <article class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-5xl font-bold mb-6">Free Plan</h1>
+    <p class="text-xl text-stone-600 mb-8">Start for free with 1 AI agent and basic memory.</p>
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li><a href="/pricing" class="hover:text-stone-900">Pricing</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">Free</li>
+      </ol>
+    </nav>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org", "@type": "Offer", name: "Free Plan", description: "Start for free with 1 AI agent and basic memory.", price: "0", priceCurrency: "INR", url: "https://personalai.cloud/free"
+    })} />
+    <section class="bg-stone-100 rounded-2xl p-8 border border-stone-200">
+      <h2 class="text-2xl font-bold mb-4">What's Included</h2>
+      <ul class="list-disc ml-6 space-y-2 text-stone-700">
+        <li>1 AI agent</li>
+        <li>Basic persistent memory</li>
+        <li>WhatsApp integration</li>
+        <li>Web access</li>
+      </ul>
+      <a href="/signup" class="inline-block mt-6 bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">Get Started</a>
+    </section>
+  </article>
+</Layout>

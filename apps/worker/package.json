@@ -1,0 +1,12 @@
+{
+  "name": "@mcpserver/worker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": { "dev": "tsx src/index.ts", "build": "tsc" },
+  "dependencies": {
+    "bullmq": "^5.0.0",
+    "@mcpserver/db": "*",
+    "@mcpserver/agent-engine": "*"
+  },
+  "devDependencies": { "@types/node": "^20.11.0", "tsx": "^4.7.0", "typescript": "^5.4.0" }
+}

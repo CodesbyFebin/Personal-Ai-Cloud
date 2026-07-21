@@ -1,0 +1,73 @@
+name: Deploy mcpserver.in
+on:
+  push:
+    branches: [main]
+env:
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY_WEB: mcpserver/web
+  ECR_REPOSITORY_WORKER: mcpserver/worker
+  ECS_CLUSTER: mcpserver-cluster
+  ECS_SERVICE_WEB: mcpserver-web-service
+  ECS_SERVICE_WORKER: mcpserver-worker-service
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Prisma Generate & Migrate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          npm run db:generate
+          cd packages/db && npx prisma migrate deploy
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Build, tag, and push Web image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_WEB:$IMAGE_TAG -f apps/web/Dockerfile .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_WEB:$IMAGE_TAG
+          echo "WEB_IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY_WEB:$IMAGE_TAG" >> $GITHUB_ENV
+      - name: Build, tag, and push Worker image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_WORKER:$IMAGE_TAG -f apps/worker/Dockerfile .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_WORKER:$IMAGE_TAG
+          echo "WORKER_IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY_WORKER:$IMAGE_TAG" >> $GITHUB_ENV
+      - name: Download task definitions
+        run: |
+          aws ecs describe-task-definition --task-definition mcpserver-web --query taskDefinition > web-task-def.json
+          aws ecs describe-task-definition --task-definition mcpserver-worker --query taskDefinition > worker-task-def.json
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def-web
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: web-task-def.json
+          container-name: mcpserver-web-container
+          image: ${{ env.WEB_IMAGE }}
+      - name: Deploy Amazon ECS web service
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def-web.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE_WEB }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true

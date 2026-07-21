@@ -1,0 +1,27 @@
+{
+  "name": "mcpserver-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "mcpserver_app"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "db:generate": "cd packages/db && prisma generate",
+    "db:push": "cd packages/db && prisma db push"
+  },
+  "devDependencies": {
+    "turbo": "^2.10.5",
+    "astro": "^4.10.3",
+    "@astrojs/tailwind": "^5.1.0"
+  },
+  "packageManager": "npm@9.8.1",
+  "dependencies": {
+    "@langchain/community": "1.1.29",
+    "@langchain/core": "1.2.3",
+    "next": "^16.2.11"
+  }
+}

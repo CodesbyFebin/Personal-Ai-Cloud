@@ -1,0 +1,18 @@
+---
+export interface Props {
+  hub: string;
+  title: string;
+}
+const { hub, title } = Astro.props;
+const hubName = hub.charAt(0).toUpperCase() + hub.slice(1).replace('_', ' ');
+---
+
+<nav aria-label="Breadcrumb" class="mb-8">
+  <ol class="flex items-center space-x-2 text-sm font-mono text-ash">
+    <li><a href="/" class="hover:text-thread">Home</a></li>
+    <li><span class="text-thread">/</span></li>
+    <li><a href={`/${hub}/`} class="hover:text-thread capitalize">{hubName}</a></li>
+    <li><span class="text-thread">/</span></li>
+    <li class="text-paper" aria-current="page">{title}</li>
+  </ol>
+</nav>

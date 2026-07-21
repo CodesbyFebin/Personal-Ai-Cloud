@@ -1,0 +1,196 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  image     String?
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  accounts  Account[]
+  sessions  Session[]
+  agents    AIAgent[]
+  memories  Memory[]
+  billing   Billing?
+  auditLogs AuditLog[]
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Workspace {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  plan      Plan     @default(FREE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  agents    AIAgent[]
+  auditLogs AuditLog[]
+}
+
+enum Plan {
+  FREE
+  STARTER
+  PRO
+  ENTERPRISE
+}
+
+model AIAgent {
+  id           String   @id @default(cuid())
+  userId       String
+  workspaceId  String?
+  name         String
+  slug         String   @unique
+  description  String   @db.Text
+  systemPrompt String   @db.Text
+  model        String   @default("gpt-4o-mini")
+  language     String   @default("en")
+  isTemplate   Boolean  @default(false)
+  totalChats   Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id])
+  workspace    Workspace? @relation(fields: [workspaceId], references: [id])
+  channels     Channel[]
+  memories     Memory[]
+  chatSessions ChatSession[]
+  tags         AgentTag[]
+  @@index([isTemplate])
+}
+
+model AgentTag {
+  id       String @id @default(cuid())
+  agentId  String
+  tag      String
+  agent    AIAgent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  @@unique([agentId, tag])
+}
+
+model Channel {
+  id         String      @id @default(cuid())
+  agentId    String
+  type       ChannelType
+  identifier String
+  isActive   Boolean     @default(true)
+  webhookUrl String?
+  fcmToken   String?
+  agent      AIAgent     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+}
+
+enum ChannelType {
+  WHATSAPP
+  ANDROID
+  WEB
+  SLACK
+  TELEGRAM
+}
+
+model Memory {
+  id        String        @id @default(cuid())
+  agentId   String
+  userId    String
+  content   String        @db.Text
+  category  MemoryCategory
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  agent     AIAgent       @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum MemoryCategory {
+  FACT
+  PREFERENCE
+  EPISODIC
+  DOCUMENT
+}
+
+model ChatSession {
+  id         String   @id @default(cuid())
+  agentId    String
+  userId     String
+  channel    ChannelType
+  messages   Json
+  tokenUsage Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  agent      AIAgent  @relation(fields: [agentId], references: [id], onDelete: Cascade)
+}
+
+model Billing {
+  id                 String   @id @default(cuid())
+  userId             String   @unique
+  razorpayCustomerId String?  @unique
+  plan               Plan     @default(FREE)
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  usageMetrics       Json?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  invoices           Invoice[]
+}
+
+model Invoice {
+  id                String   @id @default(cuid())
+  billingId         String
+  razorpayPaymentId String?  @unique
+  amount            Int
+  currency          String   @default("INR")
+  status            InvoiceStatus
+  periodStart       DateTime
+  periodEnd         DateTime
+  createdAt         DateTime @default(now())
+  billing           Billing  @relation(fields: [billingId], references: [id], onDelete: Cascade)
+}
+
+enum InvoiceStatus {
+  PENDING
+  PAID
+  FAILED
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String?
+  workspaceId String?
+  action      String
+  resource    String
+  resourceId  String?
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+  user        User?    @relation(fields: [userId], references: [id])
+  workspace   Workspace? @relation(fields: [workspaceId], references: [id])
+  @@index([userId, createdAt])
+}

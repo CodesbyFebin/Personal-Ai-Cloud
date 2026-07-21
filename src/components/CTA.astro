@@ -1,0 +1,18 @@
+---
+export interface Props {
+  primary: string;
+  secondary?: string;
+}
+const { primary, secondary } = Astro.props;
+---
+
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+  <a href="/how-to-create-personal-ai/" class="px-8 py-3 bg-thread text-ink font-semibold rounded-xl hover:bg-thread/90 transition-colors shadow-lg shadow-thread/20">
+    {primary}
+  </a>
+  {secondary && (
+    <a href="/whatsapp-personal-ai/" class="px-8 py-3 border border-ash/30 text-paper font-semibold rounded-xl hover:border-thread/50 hover:text-thread transition-colors">
+      {secondary}
+    </a>
+  )}
+</div>

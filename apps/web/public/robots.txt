@@ -1,0 +1,65 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /agents/
+Disallow: /memory/
+Disallow: /billing/
+Disallow: /login
+Disallow: /signup
+
+# AI crawlers
+User-agent: GPTBot
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /agents/
+Disallow: /memory/
+Disallow: /billing/
+
+User-agent: ChatGPT-User
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /agents/
+Disallow: /memory/
+Disallow: /billing/
+
+User-agent: Claude-Web
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /agents/
+Disallow: /memory/
+Disallow: /billing/
+
+User-agent: Google-Extended
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /agents/
+Disallow: /memory/
+Disallow: /billing/
+
+Sitemap: https://personalai.cloud/sitemap.xml
+Sitemap: https://personalai.cloud/sitemap-index.xml

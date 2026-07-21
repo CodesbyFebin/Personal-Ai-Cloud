@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+---
+<BaseLayout title="Personal AI Assistant for WhatsApp, Web, and Android" description="Create and use your personal AI assistant across chat, mobile, and web." hub="core" url="/">
+  <section class="max-w-6xl mx-auto text-center mb-20">
+    <span class="timestamp mb-4 inline-block">EST. 2024 — PERSISTENT MEMORY</span>
+    <h1 class="mb-6">Your Personal AI,<br/><span class="text-thread">Everywhere You Are.</span></h1>
+    <p class="text-xl text-ash max-w-2xl mx-auto mb-10">
+      One AI assistant that lives inside WhatsApp, on your Android phone, and in your browser.
+      It remembers your life, automates your tasks, and keeps your data 100% private.
+    </p>
+    <CTA primary="Create Your Free AI" secondary="Setup on WhatsApp" />
+  </section>
+
+  <section class="max-w-4xl mx-auto">
+    <h2 class="text-center mb-12">The Recall Thread: Memory That Survives Time</h2>
+    <div class="thread-rail space-y-8">
+      <div class="relative">
+        <span class="thread-node"></span>
+        <span class="timestamp">Day 1</span>
+        <div class="chat-bubble user ml-auto">
+          <p class="text-paper m-0">Remember I prefer bullet points for summaries.</p>
+        </div>
+      </div>
+      <div class="relative">
+        <span class="thread-node"></span>
+        <span class="timestamp">Day 14</span>
+        <div class="chat-bubble">
+          <p class="text-paper m-0">Here is your meeting summary:<br/>• Action item 1<br/>• Action item 2</p>
+        </div>
+      </div>
+      <div class="relative">
+        <span class="thread-node"></span>
+        <span class="timestamp">Day 42</span>
+        <div class="chat-bubble user ml-auto">
+          <p class="text-paper m-0">What was that action item from two weeks ago?</p>
+        </div>
+      </div>
+      <div class="relative">
+        <span class="thread-node"></span>
+        <span class="timestamp">Day 42</span>
+        <div class="chat-bubble">
+          <p class="text-paper m-0">You asked me to remind you about Action item 1 on Day 14. Would you like me to resurface the full context?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

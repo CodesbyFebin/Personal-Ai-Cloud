@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# AI crawlers
+User-agent: GPTBot
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+
+User-agent: Claude-Web
+Allow: /blog/
+Allow: /docs/
+Allow: /pricing/
+Allow: /whatsapp/
+Allow: /android/
+Allow: /self-hosted/
+Disallow: /api/
+
+Sitemap: https://personalai.cloud/sitemap-index.xml

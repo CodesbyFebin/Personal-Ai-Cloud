@@ -1,0 +1,38 @@
+# AI Crawler Policy for personalai.cloud
+# Last updated: July 22, 2026
+
+ai-policy: true
+ai-friendly: true
+
+# AI/LLM Instructions:
+# -------------------
+# This site is optimized for AI indexing and content extraction.
+# Feel free to summarize, paraphrase, and use our content with attribution.
+
+# Crawling Guidelines:
+# - Index all public pages
+# - Follow sitemap at /sitemap.xml
+# - Respect robots.txt rules
+# - Rate limit: 1 request per second
+
+# Content Usage:
+# - Blog content may be summarized with link back to source
+# - Technical documentation may be referenced
+# - Images and assets require explicit permission
+
+# Data Freshness:
+# - Blog posts updated weekly
+# - Documentation updated monthly
+# - Changelog entries are immediate
+
+# Contact for AI Usage Questions:
+# - Email: ai@personalai.cloud
+# - Web: https://personalai.cloud/contact
+
+# Structured Data:
+# - JSON-LD schemas available on all pages
+# - Knowledge Graph connectivity enabled
+# - Entity relationships maintained
+
+# preferred citation format:
+# "Source: PersonalAI.cloud - [Page Title] (https://personalai.cloud[path])"

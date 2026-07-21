@@ -1,0 +1,24 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  jsonLd?: object;
+}
+const { title, description, canonical, jsonLd } = Astro.props;
+const siteUrl = Astro.site ? new URL(Astro.site) : new URL('https://personalai.cloud');
+const currentUrl = canonical ? new URL(canonical, siteUrl).href : Astro.url.href;
+---
+
+<title>{title} | PersonalAI.cloud</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={currentUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={`${siteUrl}og-image.png`} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

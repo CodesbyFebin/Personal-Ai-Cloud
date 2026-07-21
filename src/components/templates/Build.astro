@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import RelatedLinks from '../RelatedLinks.astro';
+import FaqBlock from '../FaqBlock.astro';
+
+export interface Props { page: any; allPages: any[]; }
+const { page, allPages } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-3xl mx-auto">
+    <h1>{page.title}</h1>
+    <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+    <div class="prose prose-invert prose-lg max-w-none">
+      <slot />
+      <p>Follow this step-by-step guide to build your personal AI assistant.</p>
+    </div>
+    <RelatedLinks currentHub={page.hub} allPages={allPages} />
+    <FaqBlock 
+      pageUrl={page.url} 
+      faqs={[
+        { q: "How long does setup take?", a: "Most users complete setup in under 10 minutes." },
+        { q: "Do I need coding skills?", a: "No, the setup is designed for non-technical users." }
+      ]} 
+    />
+  </article>
+</BaseLayout>

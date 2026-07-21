@@ -1,0 +1,52 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  deployment_status:
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect URLs
+        id: urls
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const urls = new Set();
+
+          const sitemaps = [
+            'src/data/sitemap.json',
+            'astro-site/src/data/sitemap.json'
+          ];
+
+          sitemaps.forEach(file => {
+            try {
+              const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+              data.forEach(p => {
+                if (p.url) urls.add('https://personalai.cloud' + p.url);
+              });
+            } catch (e) {}
+          });
+
+          const list = Array.from(urls);
+          fs.writeFileSync('urls.json', JSON.stringify(list));
+          console.log('Collected ' + list.length + ' URLs');
+          "
+      - name: Submit to IndexNow
+        run: |
+          node -e "
+          const fs = require('fs');
+          const urls = JSON.parse(fs.readFileSync('urls.json', 'utf8'));
+          const payload = {
+            host: 'https://personalai.cloud',
+            key: 'c0957396af854ddc20c4d98ca72458f21caafdd6861c9c5d4131f53e3fa42144',
+            keyLocation: 'https://personalai.cloud/indexnow-key.txt',
+            urlList: urls
+          };
+          require('child_process').execSync(
+            'curl -X POST https://www.bing.com/indexnow -H \"Content-Type: application/json\" -d ' + JSON.stringify(JSON.stringify(payload)),
+            { stdio: 'inherit' }
+          );
+          "

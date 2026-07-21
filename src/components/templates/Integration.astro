@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import RelatedLinks from '../RelatedLinks.astro';
+import FaqBlock from '../FaqBlock.astro';
+
+export interface Props { page: any; allPages: any[]; }
+const { page, allPages } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-3xl mx-auto">
+    <h1>{page.title}</h1>
+    <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+    <div class="prose prose-invert prose-lg max-w-none">
+      <slot />
+      <p>Connect your Personal AI to the tools you already use.</p>
+    </div>
+    <RelatedLinks currentHub={page.hub} allPages={allPages} />
+    <FaqBlock 
+      pageUrl={page.url} 
+      faqs={[
+        { q: "Which tools are supported?", a: "We support calendars, task managers, note apps, and more." },
+        { q: "Is setup easy?", a: "Yes, integrations use standard OAuth and one-click connect." }
+      ]} 
+    />
+  </article>
+</BaseLayout>

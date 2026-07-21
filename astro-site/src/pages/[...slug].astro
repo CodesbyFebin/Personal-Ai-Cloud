@@ -1,0 +1,50 @@
+---
+import Layout from '.../layouts/Layout.astro';
+import sitemap from '../data/sitemap.json';
+export async function getStaticPaths() {
+  return sitemap.map((page) => ({ params: { slug: page.slug || '' } }));
+}
+const { slug } = Astro.params;
+const page = sitemap.find((p) => p.slug === slug);
+if (!page || slug === undefined) throw new Error(`Page not found for slug: ${slug}`);
+---
+<Layout title={page.title} description={page.description || ''}>
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <div class="mb-8">
+      <div class="w-12 h-1 bg-[#C9A96E] mb-6"></div>
+      <h1 class="text-5xl font-bold mb-4" style="font-family: var(--font-serif);">{page.title}</h1>
+      <p class="text-xl text-stone-600 leading-relaxed">{page.description}</p>
+    </div>
+    <div class="prose prose-stone max-w-none">
+      <p class="text-stone-700 leading-relaxed mb-6">
+         {page.description} personalai.cloud brings you the best of personal AI with persistent memory, multi-channel support, and enterprise-grade security.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 my-12">
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">WhatsApp Integration</h3>
+          <p class="text-stone-600 text-sm">Chat with your AI inside WhatsApp. No new apps needed.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Android App</h3>
+          <p class="text-stone-600 text-sm">Native Android app with FCM push notifications.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Persistent Memory</h3>
+          <p class="text-stone-600 text-sm">AI that remembers your life, preferences, and context.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Privacy First</h3>
+          <p class="text-stone-600 text-sm">End-to-end encryption. Self-hosted option available.</p>
+        </div>
+      </div>
+      <div class="bg-stone-100 rounded-2xl p-8 border border-stone-200">
+        <h3 class="text-2xl font-bold mb-4" style="font-family: var(--font-serif);">Get Started Today</h3>
+         <p class="text-stone-700 mb-6">Join thousands of users already using personalai.cloud to supercharge their productivity.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/pricing" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">View Pricing</a>
+          <a href="/whatsapp" class="border border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:bg-stone-50 transition-colors">Setup WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import Layout from '.../layouts/Layout.astro';
+---
+<Layout title="FAQ | personalai.cloud" description="Frequently asked questions about PersonalAI.cloud.">
+  <article class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
+    <p class="text-xl text-stone-600 mb-8">Everything you need to know about PersonalAI.cloud.</p>
+
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">FAQ</li>
+      </ol>
+    </nav>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        { "@type": "Question", name: "What is PersonalAI?", acceptedAnswer: { "@type": "Answer", text: "PersonalAI is an AI assistant platform that lives across WhatsApp, Android, and Web. It remembers your preferences, facts, and context across every conversation using persistent memory powered by pgvector." } },
+        { "@type": "Question", name: "How does WhatsApp integration work?", acceptedAnswer: { "@type": "Answer", text: "Connect your AI to WhatsApp Business API. Send messages to your WhatsApp number and your AI responds instantly. Setup takes 4 simple steps." } },
+        { "@type": "Question", name: "Is my data private?", acceptedAnswer: { "@type": "Answer", text: "Yes. All data is encrypted at rest and in transit. We offer a self-hosted option where you run everything on your own hardware with local LLMs via Ollama." } },
+        { "@type": "Question", name: "What languages are supported?", acceptedAnswer: { "@type": "Answer", text: "We support English, Hindi, Malayalam, Tamil, and many more. Our AI can understand and respond in multiple Indian languages." } },
+        { "@type": "Question", name: "Can I delete my AI's memories?", acceptedAnswer: { "@type": "Answer", text: "Yes, you can delete individual memories or wipe all data via the dashboard at any time." } },
+        { "@type": "Question", name: "Does the AI forget things automatically?", acceptedAnswer: { "@type": "Answer", text: "No, but you can set retention policies to automatically archive old memories." } },
+        { "@type": "Question", name: "What is a vector embedding?", acceptedAnswer: { "@type": "Answer", text: "A numerical representation of text that captures semantic meaning, used to store and retrieve memories in the vector database." } },
+        { "@type": "Question", name: "How long does the AI remember?", acceptedAnswer: { "@type": "Answer", text: "The AI remembers indefinitely until you delete the memory. Memories persist until you explicitly remove them." } },
+        { "@type": "Question", name: "Does the AI use my memories to train its model?", acceptedAnswer: { "@type": "Answer", text: "No, your data is never used to train the base model (privacy-first by design). RAG only retrieves your data at query time." } },
+        { "@type": "Question", name: "How do I get started?", acceptedAnswer: { "@type": "Answer", text: "Simply start chatting - the AI will automatically begin remembering your interactions.\"" }}
+      ]
+    })} />
+
+    <div class="space-y-8 mt-8">
+      <div>
+        <h2 class="text-2xl font-bold mb-3">Getting Started</h2>
+        <p class="text-stone-700">Sign up, connect your channel (WhatsApp, Android, or Web), and start chatting. Your AI will begin building memory immediately.</p>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold mb-3">Security & Privacy</h2>
+        <p class="text-stone-700">All data is encrypted at rest and in transit. We are DPDP compliant and offer a self-hosted option.</p>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold mb-3">Languages</h2>
+        <p class="text-stone-700">Supports 12+ Indian languages including Hindi, Tamil, Telugu, Malayalam, Bengali, and more.</p>
+      </div>
+    </div>
+  </article>
+</Layout>

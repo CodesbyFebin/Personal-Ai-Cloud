@@ -1,0 +1,40 @@
+---
+import sitemap from '../data/sitemap.json';
+import Core from '../components/templates/Core.astro';
+import Build from '../components/templates/Build.astro';
+import Whatsapp from '../components/templates/Whatsapp.astro';
+import Android from '../components/templates/Android.astro';
+import Free from '../components/templates/Free.astro';
+import Comparison from '../components/templates/Comparison.astro';
+import Usecase from '../components/templates/Usecase.astro';
+import Integration from '../components/templates/Integration.astro';
+import Faq from '../components/templates/Faq.astro';
+import Language from '../components/templates/Language.astro';
+
+export async function getStaticPaths() {
+  return sitemap
+    .filter(page => page.slug !== 'index')
+    .map(page => ({
+      params: { slug: page.slug },
+      props: { page, allPages: sitemap }
+    }));
+}
+
+const { page, allPages } = Astro.props;
+
+const templates: Record<string, any> = {
+  core: Core, advanced: Core, growth: Core, final: Core,
+  build: Build,
+  whatsapp: Whatsapp, whatsapp_feat: Whatsapp,
+  android: Android,
+  free: Free,
+  comparison: Comparison,
+  usecase: Usecase,
+  integration: Integration,
+  faq: Faq,
+  language: Language,
+};
+
+const TemplateComponent = templates[page.hub] || Core;
+---
+<TemplateComponent page={page} allPages={allPages} />

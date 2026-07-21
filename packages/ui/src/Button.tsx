@@ -1,0 +1,1 @@
+export const Button = ({ children, className }: { children: React.ReactNode, className?: string }) => <button className={`bg-indigo-600 text-white px-4 py-2 rounded ${className}`}>{children}</button>;

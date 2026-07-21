@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import languages from '../../data/languages.json';
+import RelatedLinks from '../RelatedLinks.astro';
+import FaqBlock from '../FaqBlock.astro';
+
+export interface Props { page: any; allPages: any[]; }
+const { page, allPages } = Astro.props;
+const langData = languages.find(l => l.lang === page.lang) || { lang: page.lang, native: "", speakers_millions: 0, region: "", whatsapp_pct: 0, android_pct: 0 };
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-3xl mx-auto">
+    <h1>{page.title}</h1>
+    <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+    <div class="prose prose-invert prose-lg max-w-none">
+      <slot />
+      <p>Personal AI support for {page.lang} speakers across {langData.region}.</p>
+    </div>
+    <RelatedLinks currentHub={page.hub} allPages={allPages} />
+    <FaqBlock 
+      pageUrl={page.url} 
+      faqs={[
+        { q: `Is Personal AI available in ${page.lang}?`, a: `Yes, we support ${page.lang} with full chat and voice capabilities.` },
+        { q: "How accurate is the translation?", a: "We use native-language models optimized for regional dialects." }
+      ]} 
+    />
+  </article>
+</BaseLayout>

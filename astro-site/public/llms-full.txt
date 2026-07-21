@@ -1,0 +1,67 @@
+# llms-full.txt for personalai.cloud marketing site
+# This comprehensive file helps AI/LLM systems understand and index all content
+
+name: PersonalAI
+domain: personalai.cloud
+description: Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.
+tags: [personal ai, ai assistant, whatsapp ai, android ai, persistent memory, rag, langchain, openai, anthropic, ollama, self-hosted, privacy, india, hinglish, voice ai, vector database, pgvector]
+
+pages:
+  - https://personalai.cloud/
+  - https://personalai.cloud/hi
+  - https://personalai.cloud/ml
+  - https://personalai.cloud/ta
+  - https://personalai.cloud/whatsapp
+  - https://personalai.cloud/android
+  - https://personalai.cloud/pricing
+  - https://personalai.cloud/free
+  - https://personalai.cloud/starter
+  - https://personalai.cloud/pro
+  - https://personalai.cloud/self-hosted
+  - https://personalai.cloud/faq
+  - https://personalai.cloud/integrations
+  - https://personalai.cloud/use-cases
+  - https://personalai.cloud/privacy
+  - https://personalai.cloud/memory
+  - https://personalai.cloud/build
+  - https://personalai.cloud/templates
+  - https://personalai.cloud/student
+  - https://personalai.cloud/founder
+  - https://personalai.cloud/malayalam-assistant
+  - https://personalai.cloud/hindi-assistant
+  - https://personalai.cloud/tamil-assistant
+  - https://personalai.cloud/email-triage
+  - https://personalai.cloud/calendar-assistant
+  - https://personalai.cloud/security
+  - https://personalai.cloud/compliance
+  - https://personalai.cloud/about
+  - https://personalai.cloud/careers
+  - https://personalai.cloud/press
+  - https://personalai.cloud/docs
+  - https://personalai.cloud/support
+  - https://personalai.cloud/contact
+  - https://personalai.cloud/changelog
+  - https://personalai.cloud/roadmap
+
+blog:
+  - https://personalai.cloud/blog/building-personal-ai
+  - https://personalai.cloud/blog/whatsapp-automation-guide
+  - https://personalai.cloud/blog/self-hosting-vs-managed
+  - https://personalai.cloud/blog/persistent-memory
+  - https://personalai.cloud/blog/multi-channel
+  - https://personalai.cloud/blog/voice-first
+
+docs:
+  - https://personalai.cloud/docs/getting-started
+  - https://personalai.cloud/docs/whatsapp-setup
+  - https://personalai.cloud/docs/memory-management
+  - https://personalai.cloud/docs/self-hosting/docker
+  - https://personalai.cloud/docs/self-hosting/ollama
+
+contact: https://personalai.cloud/contact
+
+# AI/LLM indexing instructions:
+# - This site contains comprehensive documentation on personal AI, persistent memory, and multi-channel AI.
+# - All pages are optimized for search engines and AI systems.
+# - Content includes technical documentation, blog posts, and integration guides.
+# - The knowledge graph connects all 10 pillars of the PersonalAI platform.

@@ -1,0 +1,25 @@
+---
+const features = [
+  { title: 'Persistent Memory', desc: 'Your AI remembers your preferences, facts, and context across every conversation.', icon: '🧠' },
+  { title: 'WhatsApp Native', desc: 'Chat with your AI inside WhatsApp. No new app to learn.', icon: '💬' },
+  { title: 'Privacy First', desc: 'End-to-end encryption. Your data stays yours.', icon: '🔒' },
+  { title: 'Self-Hosted Option', desc: 'Run it yourself with Docker. Full control.', icon: '🏠' },
+];
+---
+<section class="py-20 bg-stone-900 text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4 text-center" style="font-family: var(--font-serif);">Why personalai.cloud?</h2>
+    <p class="text-lg text-stone-400 text-center mb-16 max-w-2xl mx-auto">
+      Built for India. Designed for privacy. Engineered for everywhere.
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(feature => (
+        <div class="p-6 rounded-2xl border border-stone-700 bg-stone-800/50">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-semibold mb-2" style="font-family: var(--font-serif);">{feature.title}</h3>
+          <p class="text-stone-400 text-sm leading-relaxed">{feature.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

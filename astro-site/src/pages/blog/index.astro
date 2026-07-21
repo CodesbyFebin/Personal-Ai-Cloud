@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+const posts = [
+  { slug: 'building-personal-ai', title: 'Building a Personal AI That Remembers Everything', description: 'How we built persistent memory into personalai.cloud using pgvector and LangChain.', date: '2026-07-15' },
+  { slug: 'whatsapp-automation-guide', title: 'The Complete Guide to WhatsApp AI Automation', description: 'Step-by-step guide to connecting your AI assistant to WhatsApp Business API.', date: '2026-07-10' },
+  { slug: 'self-hosting-vs-managed', title: 'Self-Hosting vs Managed: Which Personal AI Is Right for You?', description: 'Compare privacy, cost, and convenience between self-hosted and managed personal AI.', date: '2026-07-05' },
+  { slug: 'multi-channel', title: 'Multi-Channel AI: The End of Fragmented Conversations', description: 'How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web interactions seamlessly.', date: '2026-07-21' },
+  { slug: 'voice-first', title: 'Voice-First AI: Speaking Naturally in Hinglish and Regional Languages', description: 'Understanding how PersonalAI.cloud enables voice-first AI interactions in Indian languages and Hinglish.', date: '2026-07-22' },
+];
+---
+<Layout title="Blog | personalai.cloud" description="Insights on personal AI, memory systems, WhatsApp automation, and the future of private AI assistants.">
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold mb-6">Blog</h1>
+    <p class="text-xl text-slate-600 mb-8">
+      Insights on personal AI, memory systems, WhatsApp automation, and the future of private AI assistants.
+    </p>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "PersonalAI Blog",
+      description: "Insights on personal AI, memory systems, WhatsApp automation, and the future of private AI assistants.",
+      url: "https://personalai.cloud/blog",
+      blogPost: posts.map((post, i) => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.description,
+        url: `https://personalai.cloud/blog/${post.slug}`,
+        datePublished: post.date,
+        author: { "@type": "Organization", name: "PersonalAI" },
+        position: i + 1
+      }))
+    })} />
+
+    <div class="grid gap-6">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}`} class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+          <h2 class="text-xl font-semibold mb-2">{post.title}</h2>
+          <p class="text-slate-600 text-sm">{post.description}</p>
+          <time class="text-xs text-stone-400 mt-2 block">{new Date(post.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,30 @@
+# llms.txt for personalai.cloud marketing site
+# This file helps AI/LLM systems understand and index our content
+
+name: PersonalAI
+domain: personalai.cloud
+description: Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.
+tags: [personal ai, ai assistant, whatsapp ai, android ai, persistent memory, rag, langchain, openai, anthropic, ollama, self-hosted, privacy, india]
+
+pages:
+  - https://personalai.cloud/
+  - https://personalai.cloud/pricing
+  - https://personalai.cloud/whatsapp
+  - https://personalai.cloud/android
+  - https://personalai.cloud/self-hosted
+  - https://personalai.cloud/privacy
+  - https://personalai.cloud/terms
+
+docs:
+  - https://personalai.cloud/docs/getting-started
+  - https://personalai.cloud/docs/whatsapp-setup
+  - https://personalai.cloud/docs/memory-management
+  - https://personalai.cloud/docs/self-hosting/docker
+  - https://personalai.cloud/docs/self-hosting/ollama
+
+blog:
+  - https://personalai.cloud/blog/building-personal-ai
+  - https://personalai.cloud/blog/whatsapp-automation-guide
+  - https://personalai.cloud/blog/self-hosting-vs-managed
+
+contact: https://personalai.cloud/contact

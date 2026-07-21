@@ -1,0 +1,19 @@
+{
+  "name": "@mcpserver/agent-engine",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.2.3",
+    "@langchain/openai": "^1.5.5",
+    "@mcpserver/db": "*",
+    "next": "^16.2.11",
+    "openai": "^4.104.0",
+    "pdf-parse": "^2.4.5",
+    "turbo": "2.10.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

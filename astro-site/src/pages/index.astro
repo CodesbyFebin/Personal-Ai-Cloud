@@ -1,0 +1,67 @@
+---
+import Layout from '.../layouts/Layout.astro';
+---
+
+<Layout title="PersonalAI - Your Personal AI Assistant" description="Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.">
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <div class="mb-8">
+      <div class="w-12 h-1 bg-[#C9A96E] mb-6"></div>
+      <h1 class="text-5xl font-bold mb-4" style="font-family: var(--font-serif);">Personal AI Assistant</h1>
+      <p class="text-xl text-stone-600 leading-relaxed">Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.</p>
+    </div>
+    <div class="prose prose-stone max-w-none">
+      <p class="text-stone-700 leading-relaxed mb-6">
+        personalai.cloud brings you the best of personal AI with persistent memory, multi-channel support, and enterprise-grade security.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 my-12">
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">WhatsApp Integration</h3>
+          <p class="text-stone-600 text-sm">Chat with your AI inside WhatsApp. No new apps needed.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Android App</h3>
+          <p class="text-stone-600 text-sm">Native Android app with FCM push notifications.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Persistent Memory</h3>
+          <p class="text-stone-600 text-sm">AI that remembers your life, preferences, and context.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Privacy First</h3>
+          <p class="text-stone-600 text-sm">End-to-end encryption. Self-hosted option available.</p>
+        </div>
+      </div>
+
+      <section class="bg-stone-100 rounded-2xl p-8 border border-stone-200 my-12">
+        <h2 class="text-2xl font-bold mb-4" style="font-family: var(--font-serif);">Frequently Asked Questions</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg mb-2">What is PersonalAI?</h3>
+            <p class="text-stone-700">PersonalAI is an AI assistant platform that lives across WhatsApp, Android, and Web. It remembers your preferences, facts, and context across every conversation using persistent memory powered by pgvector.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">How does WhatsApp integration work?</h3>
+            <p class="text-stone-700">Connect your AI to WhatsApp Business API. Send messages to your WhatsApp number and your AI responds instantly. Setup takes 4 simple steps.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Is my data private?</h3>
+            <p class="text-stone-700">Yes. All data is encrypted at rest and in transit. We offer a self-hosted option where you run everything on your own hardware with local LLMs via Ollama.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">What languages are supported?</h3>
+            <p class="text-stone-700">We support English, Hindi, Malayalam, Tamil, and many more. Our AI can understand and respond in multiple Indian languages.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-stone-100 rounded-2xl p-8 border border-stone-200">
+        <h3 class="text-2xl font-bold mb-4" style="font-family: var(--font-serif);">Get Started Today</h3>
+        <p class="text-stone-700 mb-6">Join thousands of users already using personalai.cloud to supercharge their productivity.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/pricing" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">View Pricing</a>
+          <a href="/whatsapp" class="border border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:bg-stone-50 transition-colors">Setup WhatsApp</a>
+        </div>
+      </section>
+    </div>
+  </section>
+</Layout>

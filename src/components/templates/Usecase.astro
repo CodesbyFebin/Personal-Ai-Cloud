@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import roles from '../../data/roles.json';
+
+export interface Props { page: any; }
+const { page } = Astro.props;
+const roleData = roles.find(r => r.role === page.role) || { role: page.role, pain_points: ["Generic pain point"], solutions: ["Generic solution"] };
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-3xl mx-auto">
+    <h1>{page.title}</h1>
+    <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+    
+    <h2 class="text-2xl font-display text-coral">Common Challenges for {roleData.role}</h2>
+    <div class="thread-rail space-y-6 mb-12">
+      {roleData.pain_points.map((pain: string) => (
+        <div class="relative">
+          <span class="thread-node bg-coral border-coral"></span>
+          <p class="text-paper m-0">{pain}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="text-2xl font-display text-thread">How Personal AI Solves This</h2>
+    <div class="thread-rail space-y-6">
+      {roleData.solutions.map((sol: string) => (
+        <div class="relative">
+          <span class="thread-node"></span>
+          <p class="text-paper m-0">{sol}</p>
+        </div>
+      ))}
+    </div>
+  </article>
+</BaseLayout>

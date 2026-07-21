@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import competitors from '../../data/competitors.json';
+
+export interface Props { page: any; }
+const { page } = Astro.props;
+const comp = competitors.find(c => c.name === page.competitor) || { name: page.competitor, strength: "General AI", weakness: "No personal memory", pricing: "Varies" };
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-4xl mx-auto">
+    <h1>{page.title}</h1>
+    <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+    
+    <div class="grid md:grid-cols-2 gap-8 my-12">
+      <div class="bg-thread/10 border border-thread/30 rounded-xl p-6">
+        <h3 class="text-2xl text-thread mb-4">PersonalAI.cloud</h3>
+        <ul class="space-y-3 text-ash">
+          <li class="flex items-center gap-2"><span class="text-thread">✓</span> Persistent, long-term memory</li>
+          <li class="flex items-center gap-2"><span class="text-thread">✓</span> Native WhatsApp & Android</li>
+          <li class="flex items-center gap-2"><span class="text-thread">✓</span> Private, self-hosted options</li>
+        </ul>
+      </div>
+      <div class="bg-ash/10 border border-ash/20 rounded-xl p-6">
+        <h3 class="text-2xl text-ash mb-4">{comp.name}</h3>
+        <ul class="space-y-3 text-ash">
+          <li class="flex items-center gap-2"><span class="text-coral">✗</span> {comp.weakness}</li>
+          <li class="flex items-center gap-2"><span class="text-coral">✗</span> No native WhatsApp integration</li>
+          <li class="flex items-center gap-2"><span class="text-ash">~</span> Pricing: {comp.pricing}</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

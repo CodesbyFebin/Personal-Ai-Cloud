@@ -1,0 +1,179 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const files = await Astro.glob('../../content/blog/**/*.{astro,md,mdx}');
+
+  return files.map(file => {
+    const relativePath = file.replace(/^.*?\/src\/content\/blog\//, '');
+    const slug = relativePath.replace(/\/index$/, '').replace(/\.(astro|md|mdx)$/, '');
+    const segments = slug.split('/');
+
+    let title = 'Blog';
+    let description = '';
+    let date = '2026-07-22';
+
+    if (file.endsWith('multi-channel.astro') || slug === 'multi-channel') {
+      title = 'Multi-Channel AI: The End of Fragmented Conversations';
+      description = 'How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web interactions seamlessly.';
+      date = '2026-07-21';
+    } else if (file.endsWith('voice-first-interaction.astro') || slug === 'voice-first') {
+      title = 'Voice-First AI: Speaking Naturally in Hinglish and Regional Languages';
+      description = 'Understanding how PersonalAI.cloud enables voice-first AI interactions in Indian languages and Hinglish.';
+      date = '2026-07-22';
+    } else if (slug.includes('whatsapp-ai-agents')) {
+      title = 'WhatsApp AI Agents: Beyond Basic Chatbots';
+      description = 'Understanding the architecture of stateful, context-aware AI agents on WhatsApp.';
+      date = '2026-07-21';
+    } else if (slug.includes('unified-identity-graph')) {
+      title = 'The Unified Identity Graph: How AI Knows You Across Devices';
+      description = 'Understanding how PersonalAI.cloud creates a persistent digital identity linking WhatsApp, Android, and Web interactions.';
+      date = '2026-07-21';
+    } else if (slug.includes('syncing-ai-context')) {
+      title = 'Syncing AI Context Between Mobile and Desktop';
+      description = 'How PersonalAI.cloud maintains consistent context across devices without data loss or duplication.';
+      date = '2026-07-21';
+    } else if (slug.includes('handling-interruptions')) {
+      title = 'Handling Interruptions Across Devices';
+      description = 'How PersonalAI.cloud manages context continuity when users switch between devices mid-conversation.';
+      date = '2026-07-21';
+    } else if (slug.includes('multi-channel-indian-freelancers')) {
+      title = 'Multi-Channel AI for Indian Freelancers';
+      description = 'How PersonalAI.cloud helps Indian freelancers leverage multi-channel AI for productivity and client management.';
+      date = '2026-07-21';
+    } else if (slug.includes('offline-sync') || slug.includes('offline-first')) {
+      title = 'Offline-First Multi-Channel Sync (Android)';
+      description = 'Ensuring your AI assistant works seamlessly even without internet connectivity.';
+      date = '2026-07-21';
+    } else if (slug.includes('security-encryption')) {
+      title = 'Security: Encrypting Messages Across Channels';
+      description = 'How we maintain end-to-end encryption while enabling cross-device sync.';
+      date = '2026-07-21';
+    } else if (slug.includes('migrating-from-single-channel')) {
+      title = 'Migrating from Single-Channel Bots to Unified AI';
+      description = 'How to transition from basic chatbots to a fully integrated PersonalAI experience.';
+      date = '2026-07-21';
+    } else if (slug.includes('future-ambient')) {
+      title = 'The Future of Ambient Computing and AI';
+      description = 'How ambient AI will transform our interaction with technology by 2030.';
+      date = '2026-07-21';
+    } else if (slug.includes('push-notifications')) {
+      title = 'Push Notifications vs. Proactive AI Nudges';
+      description = 'Understanding when and how to deliver timely reminders without overwhelming users.';
+      date = '2026-07-21';
+    } else if (slug.includes('tech-stack')) {
+      title = 'The Architecture of Seamless Handoffs (WebSockets, Unified Identity Graph)';
+      description = 'Technical deep dive into how we synchronize state across WhatsApp, Android, and Web.';
+      date = '2026-07-21';
+    } else if (slug.includes('hinglish-prompting')) {
+      title = 'Hinglish Prompting: Mixing Hindi and English Effectively';
+      description = 'Understanding how to effectively mix Hindi and English in AI interactions for better results.';
+      date = '2026-07-22';
+    } else if (slug.includes('on-device-stt')) {
+      title = 'On-Device STT for India';
+      description = 'How PersonalAI.cloud achieves accurate speech-to-text offline for India.';
+      date = '2026-07-22';
+    }
+
+    return {
+      params: { slug },
+      props: {
+        slug,
+        title,
+        description,
+        date,
+        file
+      }
+    };
+  });
+}
+
+const { slug, title, description, date, file: filePath } = Astro.props;
+
+let content = '';
+let rawContent = '';
+let resolvedTitle = title;
+let resolvedDescription = description;
+let dateModified = date;
+
+try {
+  const { execSync } = await import('node:child_process');
+  const commitDate = execSync(`git log -1 --format=%cI --date-order -- "${filePath}"`).toString().trim();
+  if (commitDate) dateModified = commitDate.split('T')[0];
+} catch {
+  // fallback to published date
+}
+
+if (filePath.endsWith('.astro')) {
+  const fs = await import('fs');
+  rawContent = fs.readFileSync(filePath, 'utf-8');
+  const match = rawContent.match(/<article[\s\S]*?<\/article>/);
+  content = match ? match[0] : rawContent;
+} else if (filePath.endsWith('.md') || filePath.endsWith('.mdx')) {
+  const fs = await import('fs');
+  rawContent = fs.readFileSync(filePath, 'utf-8');
+  const markdownMatch = rawContent.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (markdownMatch) {
+    const frontmatter = markdownMatch[1];
+    const body = markdownMatch[2];
+
+    const titleMatch = frontmatter.match(/title:\s*["'](.+?)["']/);
+    const descMatch = frontmatter.match(/description:\s*["'](.+?)["']/);
+    if (titleMatch) resolvedTitle = titleMatch[1];
+    if (descMatch) resolvedDescription = descMatch[1];
+
+    content = body;
+  } else {
+    content = rawContent;
+  }
+}
+
+if (!resolvedTitle || !resolvedDescription) {
+  return Astro.redirect('/blog');
+}
+
+const plainContent = content.replace(/<[^>]+>/g, '').replace(/[#*`]/g, '').trim();
+const metaDescription = resolvedDescription || plainContent.slice(0, 160);
+
+const breadcrumbItems = [
+  { name: 'Home', item: 'https://personalai.cloud/' },
+  { name: 'Blog', item: 'https://personalai.cloud/blog' },
+  { name: slug.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || resolvedTitle, item: `https://personalai.cloud/blog/${slug}` }
+];
+
+const isBlogPost = !slug.includes('subcluster') && !slug.includes('subclusters');
+const schemaType = isBlogPost ? 'TechArticle' : 'TechArticle';
+---
+<Layout title={`${resolvedTitle} | personalai.cloud`} description={metaDescription}>
+  <article class="max-w-3xl mx-auto px-6 py-12">
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li><a href="/blog" class="hover:text-stone-900">Blog</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">{resolvedTitle}</li>
+      </ol>
+    </nav>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": schemaType,
+      headline: resolvedTitle,
+      description: metaDescription,
+      url: `https://personalai.cloud/blog/${slug}`,
+      datePublished: date,
+      dateModified: dateModified,
+      author: { "@type": "Organization", name: "PersonalAI", url: "https://personalai.cloud" },
+      publisher: { "@type": "Organization", name: "PersonalAI", url: "https://personalai.cloud" },
+      breadcrumb: { "@type": "BreadcrumbList", itemListElement: breadcrumbItems.map((item, i) => ({ "@type": "ListItem", position: i + 1, name: item.name, item: item.item })) },
+      speakable: { "@type": "SpeakableSpecification", xpath: ["/html/body/main/article/h1", "/html/body/main/article/p"] },
+      about: { "@type": "Thing", name: resolvedTitle.split(':')[0]?.trim() || 'Personal AI' }
+    })} />
+
+    <h1 class="text-4xl font-bold mb-4">{resolvedTitle}</h1>
+    <p class="text-slate-500 mb-8">Published on {new Date(date).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    <hr class="mb-8" />
+    <div class="prose prose-stone max-w-none" set:html={content} />
+  </article>
+</Layout>

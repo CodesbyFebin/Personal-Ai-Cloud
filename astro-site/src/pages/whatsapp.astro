@@ -1,0 +1,76 @@
+---
+import Layout from '.../layouts/Layout.astro';
+const faq = [
+  { q: 'Does the AI remember my WhatsApp chats when I switch to the web?', a: 'Yes, via a unified identity graph. The state is synchronized in real-time, so your web app instantly knows the context of your WhatsApp chat.' },
+  { q: 'Is my WhatsApp data scanned by third parties?', a: 'No. End-to-end encryption principles are maintained for routing. Only the necessary metadata is used to sync state, and raw message data is never stored or processed by third parties.' },
+  { q: 'Does AI remember context across different apps?', a: 'Yes, PersonalAI.cloud uses an event-sourced state machine to ensure context is preserved across WhatsApp, Web, and Android apps.' },
+  { q: 'Can I delete my AI\'s memories?', a: 'Yes, you can delete individual memories or wipe all data via the dashboard.' },
+];
+---
+<Layout title="WhatsApp AI Assistant | personalai.cloud" description="Chat with your AI inside WhatsApp. Persistent memory, multi-language support, and enterprise-grade security.">
+  <article class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-5xl font-bold mb-6">WhatsApp AI Assistant</h1>
+    <p class="text-xl text-stone-600 mb-8">Chat with your AI inside WhatsApp. Persistent memory, multi-language support, and enterprise-grade security.</p>
+
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">WhatsApp</li>
+      </ol>
+    </nav>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "PersonalAI WhatsApp",
+      applicationCategory: "AIApplication",
+      operatingSystem: "WhatsApp",
+      description: "Chat with your AI inside WhatsApp. Persistent memory, multi-language support, and enterprise-grade security.",
+      url: "https://personalai.cloud/whatsapp",
+      author: { "@type": "Organization", name: "PersonalAI", url: "https://personalai.cloud" },
+      offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+      softwareHelp: { "@type": "CreativeWork", name: "WhatsApp AI Help", url: "https://personalai.cloud/docs/whatsapp" }
+    })} />
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-4">Why Choose WhatsApp AI?</h2>
+      <p class="text-stone-700 leading-relaxed mb-6"> WhatsApp is the most used communication app in India and emerging markets. By connecting your personal AI to WhatsApp Business API, you get an assistant that's always available in the app you already use.</p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-4">Setup Guide</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2">Step 1: Connect</h3>
+          <p class="text-stone-600 text-sm">Link your WhatsApp Business account to PersonalAI.cloud in under 2 minutes.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2">Step 2: Chat</h3>
+          <p class="text-stone-600 text-sm">Send voice notes, text, or media to your AI assistant directly in WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        {faq.map(item => (
+          <div class="border-b border-stone-200 py-4">
+            <h3 class="font-semibold text-lg mb-2">{item.q}</h3>
+            <p class="text-stone-600">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-stone-100 rounded-2xl p-8 border border-stone-200">
+      <h3 class="text-2xl font-bold mb-4">Get Started Today</h3>
+      <p class="text-stone-700 mb-6">Join thousands of users already using personalai.cloud to supercharge their productivity.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/pricing" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">View Pricing</a>
+        <a href="/self-hosted" class="border border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:bg-stone-50 transition-colors">Self-Hosted</a>
+      </div>
+    </section>
+  </article>
+</Layout>

@@ -1,0 +1,13 @@
+[
+  { "no": 1, "url": "/", "slug": "index", "hub": "core", "title": "Personal AI Assistant for WhatsApp, Web, and Android", "meta": "Create and use your personal AI assistant across chat, mobile, and web." },
+  { "no": 2, "url": "/personal-ai-assistant/", "slug": "personal-ai-assistant", "hub": "core", "title": "Personal AI Assistant", "meta": "Learn what a personal AI assistant is and how it helps daily life." },
+  { "no": 16, "url": "/how-to-create-personal-ai/", "slug": "how-to-create-personal-ai", "hub": "build", "title": "How to Create Personal AI", "meta": "Step-by-step guide to creating a personal AI assistant." },
+  { "no": 31, "url": "/whatsapp-personal-ai/", "slug": "whatsapp-personal-ai", "hub": "whatsapp", "title": "WhatsApp Personal AI", "meta": "Use a personal AI assistant inside WhatsApp." },
+  { "no": 51, "url": "/personal-ai-for-android/", "slug": "personal-ai-for-android", "hub": "android", "title": "Personal AI for Android", "meta": "Use your personal AI on Android." },
+  { "no": 71, "url": "/free-personal-ai-tools/", "slug": "free-personal-ai-tools", "hub": "free", "title": "Free Personal AI Tools", "meta": "Discover free tools for personal AI." },
+  { "no": 91, "url": "/personal-ai-vs-chatgpt/", "slug": "personal-ai-vs-chatgpt", "hub": "comparison", "title": "Personal AI vs ChatGPT", "meta": "Compare personal AI with ChatGPT.", "competitor": "ChatGPT" },
+  { "no": 111, "url": "/personal-ai-for-students/", "slug": "personal-ai-for-students", "hub": "usecase", "title": "Personal AI for Students", "meta": "Use personal AI for study, revision, and planning.", "role": "Students" },
+  { "no": 151, "url": "/personal-ai-integrations/", "slug": "personal-ai-integrations", "hub": "integration", "title": "Personal AI Integrations", "meta": "Connect your AI to tools and services.", "tool": "Integrations" },
+  { "no": 171, "url": "/personal-ai-faq/", "slug": "personal-ai-faq", "hub": "faq", "title": "Personal AI FAQ", "meta": "Common questions about personal AI." },
+  { "no": 206, "url": "/personal-ai-malayalam/", "slug": "personal-ai-malayalam", "hub": "language", "title": "Personal AI in Malayalam", "meta": "Personal AI support for Malayalam users.", "lang": "Malayalam" }
+]

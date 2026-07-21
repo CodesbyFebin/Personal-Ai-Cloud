@@ -1,0 +1,22 @@
+---
+export interface Props {
+  currentHub: string;
+  allPages: any[];
+}
+const { currentHub, allPages } = Astro.props;
+const related = allPages.filter(p => p.hub === currentHub && p.slug !== 'index').slice(0, 4);
+---
+
+<section class="mt-16 pt-8 border-t border-ash/20">
+  <h3 class="text-xl font-display mb-4">Explore More in {currentHub}</h3>
+  <ul class="grid md:grid-cols-2 gap-4">
+    {related.map(page => (
+      <li>
+        <a href={page.url} class="block p-4 bg-paper/5 rounded-lg border border-ash/10 hover:border-thread/50 transition-colors">
+          <span class="font-semibold text-paper block">{page.title}</span>
+          <span class="text-sm text-ash">{page.meta}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

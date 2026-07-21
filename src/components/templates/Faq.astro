@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import FaqBlock from '../FaqBlock.astro';
+
+export interface Props { page: any; }
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={page.meta} hub={page.hub} url={page.url}>
+  <Breadcrumbs hub={page.hub} title={page.title} />
+  <article class="max-w-3xl mx-auto">
+    <h1>{page.title}</h1>
+    <p class="text-xl text-ash mt-4 mb-8">{page.meta}</p>
+    <FaqBlock 
+      pageUrl={page.url} 
+      faqs={[
+        { q: "What is a personal AI assistant?", a: "A personal AI assistant is an AI that learns your preferences, remembers your context, and acts on your behalf across apps." },
+        { q: "How does memory work?", a: "We store encrypted vectors of your preferences and history, so your AI gets smarter over time." },
+        { q: "Is my data private?", a: "Yes. You own your data, and we never train on it without explicit consent." }
+      ]} 
+    />
+  </article>
+</BaseLayout>

@@ -1,19 +1,43 @@
-# llms.txt for personalai.cloud marketing site
-# This file helps AI/LLM systems understand and index our content
+# LLMs.txt for personalai.cloud marketing site
+# Updated: 2026-07-22
 
 name: PersonalAI
 domain: personalai.cloud
 description: Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.
-tags: [personal ai, ai assistant, whatsapp ai, android ai, persistent memory, rag, langchain, openai, anthropic, ollama, self-hosted, privacy, india]
+tags: [personal ai, ai assistant, whatsapp ai, android ai, persistent memory, rag, langchain, openai, anthropic, ollama, self-hosted, privacy, india, hinglish, voice ai, vector database, pgvector]
 
 pages:
   - https://personalai.cloud/
-  - https://personalai.cloud/pricing
   - https://personalai.cloud/whatsapp
   - https://personalai.cloud/android
+  - https://personalai.cloud/pricing
   - https://personalai.cloud/self-hosted
+  - https://personalai.cloud/faq
+  - https://personalai.cloud/integrations
+  - https://personalai.cloud/use-cases
   - https://personalai.cloud/privacy
-  - https://personalai.cloud/terms
+  - https://personalai.cloud/memory
+  - https://personalai.cloud/build
+  - https://personalai.cloud/templates
+  - https://personalai.cloud/student
+  - https://personalai.cloud/founder
+  - https://personalai.cloud/docs
+  - https://personalai.cloud/about
+  - https://personalai.cloud/contact
+  - https://personalai.cloud/security
+  - https://personalai.cloud/compliance
+  - https://personalai.cloud/changelog
+  - https://personalai.cloud/roadmap
+  - https://personalai.cloud/support
+  - https://personalai.cloud/careers
+  - https://personalai.cloud/press
+
+blog:
+  - https://personalai.cloud/blog/building-personal-ai
+  - https://personalai.cloud/blog/whatsapp-automation-guide
+  - https://personalai.cloud/blog/self-hosting-vs-managed
+  - https://personalai.cloud/blog/multi-channel
+  - https://personalai.cloud/blog/voice-first
 
 docs:
   - https://personalai.cloud/docs/getting-started
@@ -22,9 +46,10 @@ docs:
   - https://personalai.cloud/docs/self-hosting/docker
   - https://personalai.cloud/docs/self-hosting/ollama
 
-blog:
-  - https://personalai.cloud/blog/building-personal-ai
-  - https://personalai.cloud/blog/whatsapp-automation-guide
-  - https://personalai.cloud/blog/self-hosting-vs-managed
-
 contact: https://personalai.cloud/contact
+
+# AI Crawler Notes:
+# - This file is optimized for LLM and AI search engine ingestion.
+# - Entities: PersonalAI, WhatsApp, Android, pgvector, LangChain, OpenAI, Anthropic, Ollama, India
+# - Topics: persistent memory, multi-channel AI, voice AI, privacy, self-hosting
+# - Highlighted pages: pricing, self-hosted, docs, blog, integrations

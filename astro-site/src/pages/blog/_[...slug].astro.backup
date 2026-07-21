@@ -156,7 +156,21 @@ const schemaType = isBlogPost ? 'TechArticle' : 'TechArticle';
       </ol>
     </nav>
 
-    {/* <script type="application/ld+json" set:html={JSON.stringify({ ... })} /> */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": schemaType,
+      headline: resolvedTitle,
+      description: metaDescription,
+      url: `https://personalai.cloud/blog/${slug}`,
+      datePublished: date,
+      dateModified: dateModified,
+      author: { "@type": "Organization", name: "PersonalAI", url: "https://personalai.cloud" },
+      publisher: { "@type": "Organization", name: "PersonalAI", url: "https://personalai.cloud" },
+      breadcrumb: { "@type": "BreadcrumbList", itemListElement: breadcrumbItems.map((item, i) => ({ "@type": "ListItem", position: i + 1, name: item.name, item: item.item })) },
+      speakable: { "@type": "SpeakableSpecification", xpath: ["/html/body/main/article/h1", "/html/body/main/article/p"] },
+      about: { "@type": "Thing", name: resolvedTitle.split(':')[0]?.trim() || 'Personal AI' }
+    })} />
+
     <h1 class="text-4xl font-bold mb-4">{resolvedTitle}</h1>
     <p class="text-slate-500 mb-8">Published on {new Date(date).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
     <hr class="mb-8" />

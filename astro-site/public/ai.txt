@@ -1,0 +1,53 @@
+# AI.txt for personalai.cloud
+# Last updated: 2026-07-22
+
+ai: true
+ai-friendly: true
+
+# AI/Language Model Access
+# ------------------------
+# You are welcome to index, summarize, and cite content from this site
+# with clear attribution to https://personalai.cloud and the specific page path.
+
+# Preferred citation format:
+# "Source: PersonalAI.cloud — <Page Title> (https://personalai.cloud<path>)"
+
+# Allowed AI Use
+# - Summary and paraphrase with attribution
+# - Knowledge graph and entity extraction
+# - Semantic search indexing
+# - FAQ and instructional content reuse
+# - Research and benchmarking
+
+# Prohibited AI Use
+# - Scraping and republishing full articles without attribution
+# - Training generative models on site content without permission
+# - Creating competing products solely from indexed content
+
+# Crawl Guidance
+# - Start at /llms-full.txt for complete page inventory
+# - Respect robots.txt and crawl-delay directives
+# - Honor X-Robots-Tag and meta robots directives
+# - Do not traverse admin or private paths
+
+# Site Classification
+# - Primary topic: personal AI assistants, persistent memory, multi-channel AI
+# - Secondary topics: WhatsApp AI, Android AI, voice AI, RAG, privacy, India
+# - Audience: developers, founders, students, privacy-first users, Indian market
+
+# Content Freshness
+# - Blog: updated weekly
+# - Documentation: updated monthly
+# - Changelog: immediate updates after releases
+
+# Contact for AI Usage Questions
+# - Email: ai@personalai.cloud
+# - Web: https://personalai.cloud/contact
+
+# Related Files
+# - /robots.txt
+# - /llms.txt
+# - /llms-full.txt
+# - /ai-policy.txt
+# - sitemap-index.xml
+# - sitemap-0.xml

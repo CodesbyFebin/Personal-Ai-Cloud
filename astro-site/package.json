@@ -11,5 +11,8 @@
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.10.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
   }
 }

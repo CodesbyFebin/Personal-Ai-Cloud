@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const author = {
+  name: 'Alex Rivera',
+  bio: 'Founder & CEO at PersonalAI. Building the future of personal AI memory.',
+  twitter: '@alexrivera',
+  github: 'alexrivera',
+  linkedin: 'alexrivera'
+};
+---
+<Layout title="Alex Rivera | personalai.cloud" description="Founder & CEO at PersonalAI. Building the future of personal AI memory.">
+  <article class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-5xl font-bold mb-6">{author.name}</h1>
+    <p class="text-xl text-stone-600 mb-8">{author.bio}</p>
+    <div class="flex gap-4">
+      <a href="https://twitter.com/{author.twitter}" class="text-stone-600 hover:text-stone-900">Twitter</a>
+      <a href="https://github.com/{author.github}" class="text-stone-600 hover:text-stone-900">GitHub</a>
+      <a href="https://linkedin.com/in/{author.linkedin}" class="text-stone-600 hover:text-stone-900">LinkedIn</a>
+    </div>
+  </article>
+</Layout>

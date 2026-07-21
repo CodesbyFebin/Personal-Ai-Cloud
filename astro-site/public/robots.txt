@@ -1,33 +1,75 @@
+# robots.txt for personalai.cloud
+# Last updated: 2026-07-22
+
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /auth/
 
-# AI crawlers
+# AI Crawlers
 User-agent: GPTBot
-Allow: /blog/
-Allow: /docs/
-Allow: /pricing/
-Allow: /whatsapp/
-Allow: /android/
-Allow: /self-hosted/
-Disallow: /api/
+Allow: /
 
-User-agent: ChatGPT-User
-Allow: /blog/
-Allow: /docs/
-Allow: /pricing/
-Allow: /whatsapp/
-Allow: /android/
-Allow: /self-hosted/
-Disallow: /api/
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GoogleBot
+Allow: /
 
 User-agent: Claude-Web
-Allow: /blog/
-Allow: /docs/
-Allow: /pricing/
-Allow: /whatsapp/
-Allow: /android/
-Allow: /self-hosted/
-Disallow: /api/
+Allow: /
 
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: DuckAssistUser
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: ISR-ISDBot
+Allow: /
+
+User-agent: Kangaroo Bot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: SimpleCrawler
+Allow: /
+
+User-agent: Sidetrade indexer bot
+Allow: /
+
+User-agent: Timestamped
+Allow: /
+
+# Sitemaps
 Sitemap: https://personalai.cloud/sitemap-index.xml
+Sitemap: https://personalai.cloud/sitemap-0.xml
+
+# Crawl-delay
+Crawl-delay: 1

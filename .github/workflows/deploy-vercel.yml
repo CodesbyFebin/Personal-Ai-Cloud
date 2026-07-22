@@ -15,11 +15,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build Astro site
-        run: npx astro build
+        run: cd astro-site && npx astro build
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod --cwd .'
+          vercel-args: '--prod --cwd astro-site'

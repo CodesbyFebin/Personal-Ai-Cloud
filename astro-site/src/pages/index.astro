@@ -19,8 +19,47 @@ import SecuritySummary from '../components/SecuritySummary.astro';
 import DeveloperSection from '../components/DeveloperSection.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import CTA from '../components/CTA.astro';
+
+const siteUrl = 'https://personalai.cloud';
+const pageUrl = `${siteUrl}/`;
+
+const itemList = {
+  '@type': 'ItemList',
+  name: 'PersonalAI Features',
+  itemListElement: features.slice(0, 10).map((f, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: f.title,
+      description: f.desc,
+      url: `${siteUrl}/#features`
+    }
+  }))
+};
+
+const structuredData = [
+  {
+    '@type': 'WebSite',
+    url: siteUrl,
+    name: 'PersonalAI.Cloud',
+    description: 'India\'s #1 personal AI platform with persistent memory across WhatsApp, Android, and Web.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  },
+  itemList
+];
 ---
-<Layout title="Your Personal AI, Everywhere You Are" description="One assistant that lives in WhatsApp, on Android, and in your browser. Persistent memory, privacy‑first.">
+
+<Layout
+  title="PersonalAI.Cloud | India's #1 Personal AI Platform - Persistent Memory Across WhatsApp, Android & Web"
+  description="One assistant that lives in WhatsApp, on Android, and in your browser. Persistent memory, privacy-first. 8+ AI providers, 90+ free tiers."
+  schema="webpage"
+  structuredData={structuredData}
+>
 
   <section class="hero section">
     <div class="container hero__grid">

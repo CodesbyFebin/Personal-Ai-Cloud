@@ -3,8 +3,7 @@ title: "Voice-First AI: Speaking Naturally in Hinglish and Regional Languages"
 slug: voice-first-interaction
 description: "Understanding how PersonalAI.cloud enables voice-first AI interactions in Indian languages and Hinglish."
 ---
-<Layout title="Voice-First AI: Speaking Naturally in Hinglish and Regional Languages" description="Understanding how PersonalAI.cloud enables voice-first AI interactions in Indian languages and Hinglish.">
-<article class="max-w-4xl mx-auto px-6 py-12">
+<div class="max-w-4xl mx-auto px-6 py-12">
   <h1 class="text-5xl font-bold mb-6">Voice-First AI: Speaking Naturally in Hinglish and Regional Languages</h1>
   <div class="flex items-center gap-4 text-sm text-slate-600 mb-8">
     <span>📅 July 22, 2026</span>
@@ -23,10 +22,10 @@ description: "Understanding how PersonalAI.cloud enables voice-first AI interact
 
   <h2>Key Features</h2>
   <ul>
-    <li><strong>Multi-language Support:</strong> Hindi, Malayalam, Tamil, Telugu, Bengali, and more</li>
-    <li><strong>Hinglish Understanding:</strong> Natural code-switching between Hindi and English</li>
-    <li><strong>On-Device Processing:</strong> Privacy-preserving speech recognition</li>
-    <li><strong>Offline Capability:</strong> Works without internet connectivity</li>
+    <li><strong>Multi-language Support:</strong> Hindi, Malayalam, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, and many more Indian languages.</li>
+    <li><strong>Hinglish Understanding:</strong> Natural code-switching between Hindi and English.</li>
+    <li><strong>On-Device Processing:</strong> Privacy-preserving speech recognition.</li>
+    <li><strong>Offline Capability:</strong> Works without internet connectivity.</li>
   </ul>
 
   <h2>FAQs</h2>
@@ -40,5 +39,4 @@ description: "Understanding how PersonalAI.cloud enables voice-first AI interact
       <p class="text-slate-600 mt-2">Yes, our on-device STT engine works offline for supported languages.</p>
     </div>
   </div>
-</article>
-</Layout>
+</div>

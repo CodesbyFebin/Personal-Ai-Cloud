@@ -6,7 +6,7 @@ import { dirname, basename, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export async function getStaticPaths() {
-  const globFiles = Object.keys(import.meta.glob('../../content/blog/**/*.{astro,md,mdx}', { eager: true }));
+  const globFiles = Object.keys(import.meta.glob('../../content/blog/**/*.{md,mdx}', { eager: true }));
   const absFilePaths = new Map(
     globFiles.map(file => {
       const isAbsolute = file.startsWith('/');
@@ -33,11 +33,11 @@ export async function getStaticPaths() {
     let description = '';
     let date = '2026-07-22';
 
-    if (fileName === 'multi-channel.astro' || slug === 'multi-channel') {
+    if (fileName === 'multi-channel.md' || slug === 'multi-channel') {
       title = 'Multi-Channel AI: The End of Fragmented Conversations';
       description = 'How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web interactions seamlessly.';
       date = '2026-07-21';
-    } else if (fileName === 'voice-first-interaction.astro' || slug === 'voice-first') {
+    } else if (fileName === 'voice-first-interaction.md' || slug === 'voice-first') {
       title = 'Voice-First AI: Speaking Naturally in Hinglish and Regional Languages';
       description = 'Understanding how PersonalAI.cloud enables voice-first AI interactions in Indian languages and Hinglish.';
       date = '2026-07-22';

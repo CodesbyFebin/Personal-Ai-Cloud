@@ -2,8 +2,7 @@
 title: "Multi-Channel AI: The End of Fragmented Conversations"
 description: "How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web interactions seamlessly."
 ---
-<Layout title="Multi-Channel AI: The End of Fragmented Conversations" description="How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web interactions seamlessly.">
-<article class="max-w-4xl mx-auto px-6 py-12">
+<div class="max-w-4xl mx-auto px-6 py-12">
   <h1 class="text-5xl font-bold mb-6">Multi-Channel AI: The End of Fragmented Conversations</h1>
   <div class="flex items-center gap-4 text-sm text-slate-600 mb-8">
     <span>📅 July 21, 2026</span>
@@ -34,5 +33,4 @@ description: "How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web 
       <p class="text-slate-600 mt-2">Yes, PersonalAI.cloud uses an event-sourced state machine to ensure context is preserved across all channels.</p>
     </div>
   </div>
-</article>
-</Layout>
+</div>

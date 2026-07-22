@@ -1,4 +1,4 @@
-# mcpserver.in — Production Platform
+# Personal Ai  — Production Platform
 
 India's first managed Personal AI Assistant with persistent memory, WhatsApp/Android integration, and privacy-first architecture.
 

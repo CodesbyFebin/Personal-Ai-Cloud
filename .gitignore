@@ -18,3 +18,5 @@ android/app/google-services.json
 firebase-service-account.json
 terraform.tfstate*
 *.tfvars
+.astro/
+.kilocode/

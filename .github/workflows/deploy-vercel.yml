@@ -35,13 +35,16 @@ jobs:
           "
         if: always()
       - name: Call IndexNow API
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || '' }}
         run: |
           node -e "
             const fs = require('fs');
             const urls = JSON.parse(fs.readFileSync('indexnow-urls.json', 'utf8'));
+            const keyFromFile = fs.readFileSync('public/indexnow-key.txt', 'utf8').trim();
             const payload = {
-              host: 'https://personalai.cloud',
-              key: fs.readFileSync('public/indexnow-key.txt', 'utf8').trim(),
+              host: 'personalai.cloud',
+              key: keyFromFile,
               keyLocation: 'https://personalai.cloud/indexnow-key.txt',
               urlList: urls
             };

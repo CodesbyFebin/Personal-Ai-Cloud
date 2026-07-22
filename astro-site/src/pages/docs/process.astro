@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const criteria = [
+  { category: 'Code Quality', check: 'Clean, readable, typed (TS), passing lint and tests.' },
+  { category: 'Performance', check: 'No regressions in build time or load time.' },
+  { category: 'Security', check: 'No hardcoded secrets, dependencies audited, encryption verified.' },
+  { category: 'Accessibility', check: 'Keyboard-navigable, contrast-compliant, ARIA labels where needed.' },
+  { category: 'Documentation', check: 'New endpoints or features ship with docs and updated examples.' },
+  { category: 'UX', check: 'Responsive, consistent with the design system, no janky interactions.' },
+  { category: 'AI / ML', check: 'RAG retrieval accuracy, model fallback logic, and token usage checked.' },
+  { category: 'Self-Hosting', check: 'Docker Compose still works, env vars documented, no hidden dependencies.' }
+];
+---
+<Layout title="Review Process | personalai.cloud" description="How changes to PersonalAI.cloud are reviewed before release.">
+  <article class="max-w-4xl mx-auto px-6 py-12">
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li><a href="/docs" class="hover:text-stone-900">Documentation</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">Review Process</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-5xl font-bold mb-6">Review Process</h1>
+    <p class="text-xl text-stone-600 mb-10">What every pull request or feature release is checked against before it ships.</p>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border border-stone-200 rounded-xl overflow-hidden">
+        <thead>
+          <tr class="bg-stone-900 text-white">
+            <th class="text-left px-6 py-4">Category</th>
+            <th class="text-left px-6 py-4">What's checked</th>
+          </tr>
+        </thead>
+        <tbody>
+          {criteria.map((row, i) => (
+            <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
+              <td class="px-6 py-4 font-medium whitespace-nowrap">{row.category}</td>
+              <td class="px-6 py-4 text-stone-700">{row.check}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl border border-stone-200 bg-white">
+      <h2 class="text-2xl font-bold mb-4">Why this list</h2>
+      <p class="text-stone-700">
+        PersonalAI.cloud is developed in the open — the checklist above is the bar every change is held to
+        before merging, whether it's a small fix or a new feature. See the
+        <a href="https://github.com/CodesbyFebin/Personal-Ai-Cloud" class="underline">GitHub repo</a>
+        for open issues and how to contribute.
+      </p>
+    </div>
+  </article>
+</Layout>

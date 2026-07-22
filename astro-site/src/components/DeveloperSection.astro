@@ -1,0 +1,41 @@
+<section class="developer section section--alt">
+  <div class="container developer__grid">
+    <div>
+      <span class="section__eyebrow">For Developers</span>
+      <h2 class="section__title">Built on <span class="highlight">Open Tools</span></h2>
+      <p class="section__lead">Docker Compose to self-host, an OpenAI-compatible REST API, webhooks, and MCP tool support to plug into your own workflows.</p>
+      <ul class="developer__list">
+        <li>✅ Self-host with Docker Compose — PostgreSQL + pgvector, Redis, and a LangChain-based agent engine</li>
+        <li>✅ OpenAI-compatible REST API — point Cursor, Claude Code, or any compatible client at your endpoint</li>
+        <li>✅ Webhooks and MCP tool support for custom integrations</li>
+        <li>✅ Open-source core on GitHub</li>
+      </ul>
+      <div class="developer__ctas">
+        <a href="/self-hosted" class="btn btn--outline">Self-Hosting Guide</a>
+        <a href="/integrations" class="btn btn--outline">Integrations</a>
+        <a href="https://github.com/CodesbyFebin/Personal-Ai-Cloud" class="btn btn--outline">★ GitHub</a>
+      </div>
+    </div>
+    <div class="developer__code">
+      <pre><code># Self-host in one command
+git clone https://github.com/personalai/self-hosted.git
+cd personalai-selfhosted
+cp .env.example .env
+docker compose up -d
+# → http://localhost:3000</code></pre>
+    </div>
+  </div>
+</section>
+
+<style>
+  .developer__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .developer__list { list-style: none; padding: 0; margin: 1.5rem 0; }
+  .developer__list li { color: var(--color-text-muted); padding: 0.4rem 0; font-size: 0.95rem; }
+  .developer__ctas { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+  .developer__code { background: #0a0d13; border: 1px solid var(--color-border); border-radius: 1rem; padding: 1.5rem; overflow-x: auto; }
+  .developer__code pre { margin: 0; }
+  .developer__code code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text); line-height: 1.7; white-space: pre; }
+  @media (max-width: 768px) {
+    .developer__grid { grid-template-columns: 1fr; }
+  }
+</style>

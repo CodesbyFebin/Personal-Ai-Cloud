@@ -1,0 +1,41 @@
+<section class="architecture section">
+  <div class="container">
+    <div class="architecture__header">
+      <span class="section__eyebrow">How It Works</span>
+      <h2 class="section__title">One Memory Layer, <span class="highlight">Any Model</span></h2>
+      <p class="section__lead">Your channel doesn't hold the memory — the gateway does. Swap the underlying model without losing context.</p>
+    </div>
+    <div class="architecture__diagram">
+      <div class="architecture__row">
+        <span class="architecture__node">WhatsApp</span>
+        <span class="architecture__node">Android</span>
+        <span class="architecture__node">Web</span>
+      </div>
+      <div class="architecture__arrow">↓</div>
+      <div class="architecture__node architecture__node--primary">PersonalAI Gateway</div>
+      <div class="architecture__arrow">↓</div>
+      <div class="architecture__node architecture__node--secondary">Memory Layer <small>PostgreSQL + pgvector · RAG</small></div>
+      <div class="architecture__arrow">↓</div>
+      <div class="architecture__row">
+        <span class="architecture__provider">OpenAI</span>
+        <span class="architecture__provider">Anthropic</span>
+        <span class="architecture__provider">Groq</span>
+        <span class="architecture__provider">Ollama</span>
+        <span class="architecture__provider">+4 more</span>
+      </div>
+      <div class="architecture__arrow">↓</div>
+      <div class="architecture__node">Response, with full context</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .architecture__header { text-align: center; margin-bottom: 3rem; }
+  .architecture__diagram { max-width: 560px; margin: 0 auto; text-align: center; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 1.2rem; padding: 2rem 1.5rem; }
+  .architecture__row { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin: 0.4rem 0; }
+  .architecture__node { font-weight: 600; padding: 0.6rem 1rem; background: var(--color-surface); border-radius: 0.6rem; display: inline-block; margin: 0.3rem 0; }
+  .architecture__node--primary { background: rgba(201, 168, 76, 0.14); color: var(--color-accent); }
+  .architecture__node--secondary small { display: block; font-weight: 400; color: var(--color-text-muted); font-size: 0.75rem; margin-top: 0.25rem; }
+  .architecture__arrow { color: var(--color-text-muted); font-size: 1.3rem; }
+  .architecture__provider { background: var(--color-surface-alt); padding: 0.2rem 0.8rem; border-radius: 999px; font-size: 0.8rem; border: 1px solid var(--color-border); }
+</style>

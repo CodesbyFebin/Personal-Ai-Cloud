@@ -1,9 +1,10 @@
 ---
 import type { Feature } from '../../data/features.json';
-const { icon, title, desc } = Astro.props;
+const { icon, title, desc, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
 ---
-<div class="features__card card">
+<Tag class="features__card card" href={href}>
   <div class="features__icon">{icon}</div>
   <h3>{title}</h3>
   <p>{desc}</p>
-</div>
+</Tag>

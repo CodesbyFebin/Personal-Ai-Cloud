@@ -3,9 +3,22 @@ import Layout from '../layouts/Layout.astro';
 import features from '../data/features.json';
 import providers from '../data/providers.json';
 import pricing from '../data/pricing.json';
+import industries from '../data/industries.json';
 import FeatureCard from '../components/FeatureCard.astro';
 import ProviderCard from '../components/ProviderCard.astro';
 import PricingCard from '../components/PricingCard.astro';
+import TrustBar from '../components/TrustBar.astro';
+import WhatIsPersonalAI from '../components/WhatIsPersonalAI.astro';
+import WhyItMatters from '../components/WhyItMatters.astro';
+import WhyIndia from '../components/WhyIndia.astro';
+import MemoryTimeline from '../components/MemoryTimeline.astro';
+import IndustryGrid from '../components/IndustryGrid.astro';
+import Architecture from '../components/Architecture.astro';
+import AIComparisonTable from '../components/AIComparisonTable.astro';
+import SecuritySummary from '../components/SecuritySummary.astro';
+import DeveloperSection from '../components/DeveloperSection.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import CTA from '../components/CTA.astro';
 ---
 <Layout title="Your Personal AI, Everywhere You Are" description="One assistant that lives in WhatsApp, on Android, and in your browser. Persistent memory, privacy‑first.">
 
@@ -44,6 +57,10 @@ import PricingCard from '../components/PricingCard.astro';
     </div>
   </section>
 
+  <TrustBar />
+  <WhatIsPersonalAI />
+  <WhyItMatters />
+
   <section class="features section section--alt" id="features">
     <div class="container">
       <div class="features__header">
@@ -56,6 +73,9 @@ import PricingCard from '../components/PricingCard.astro';
       </div>
     </div>
   </section>
+
+  <MemoryTimeline />
+  <WhyIndia />
 
   <section class="providers section" id="providers">
     <div class="container">
@@ -70,6 +90,12 @@ import PricingCard from '../components/PricingCard.astro';
     </div>
   </section>
 
+  <IndustryGrid industries={industries} />
+  <Architecture />
+  <AIComparisonTable />
+  <SecuritySummary />
+  <DeveloperSection />
+
   <section class="pricing section section--alt" id="pricing">
     <div class="container">
       <div class="pricing__header">
@@ -83,18 +109,8 @@ import PricingCard from '../components/PricingCard.astro';
     </div>
   </section>
 
-  <section class="cta section">
-    <div class="container cta__banner">
-      <h2>Ready to Build Your Personal AI?</h2>
-      <p>Join 1,000+ Indians who already use PersonalAI.cloud to remember, automate, and simplify their lives.</p>
-      <p class="cta__tagline"><strong>Made with AI in India. For India.</strong></p>
-      <div class="cta__actions">
-        <a href="/signup" class="btn btn--primary btn--lg">🚀 Start Free — No Credit Card</a>
-        <a href="/whatsapp" class="btn btn--outline btn--lg">📱 Setup on WhatsApp</a>
-         <a href="https://github.com/CodesbyFebin/Personal-Ai-Cloud" class="btn btn--outline btn--lg">★ Star on GitHub</a>
-      </div>
-    </div>
-  </section>
+  <FAQAccordion />
+  <CTA />
 
   <style>
     .hero { background: var(--color-bg); padding: 4rem 0 6rem; }
@@ -109,15 +125,16 @@ import PricingCard from '../components/PricingCard.astro';
     .arch-provider { background: var(--color-surface-alt); padding: 0.2rem 0.8rem; border-radius: 999px; font-size: 0.8rem; border: 1px solid var(--color-border); }
     .features__header { text-align: center; margin-bottom: 3rem; }
     .features__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .features__card { text-align: center; }
+    .features__card { text-align: center; display: block; color: inherit; text-decoration: none; }
     .features__icon { font-size: 3rem; margin-bottom: 1rem; }
-    .features__card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .features__card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--color-text); }
     .features__card p { color: var(--color-text-muted); line-height: 1.7; }
     .providers__header { text-align: center; margin-bottom: 3rem; }
     .providers__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; }
     .provider__card { text-align: center; }
     .provider__name { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.3rem; }
     .provider__type { color: var(--color-text-muted); font-size: 0.85rem; }
+    .provider__strength { color: var(--color-text-muted); font-size: 0.8rem; margin-top: 0.5rem; line-height: 1.5; }
     .pricing__header { text-align: center; margin-bottom: 3rem; }
     .pricing__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
     .pricing__card { text-align: center; }
@@ -127,17 +144,9 @@ import PricingCard from '../components/PricingCard.astro';
     .pricing__price .period { color: var(--color-text-muted); font-size: 1rem; }
     .pricing__card ul { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; }
     .pricing__card ul li { color: var(--color-text-muted); padding: 0.3rem 0; font-size: 0.9rem; }
-    .cta__banner { background: var(--color-surface-alt); border-radius: 2rem; padding: 4rem 2rem; text-align: center; border: 1px solid var(--color-border); }
-    .cta__banner h2 { font-size: 2.8rem; margin-bottom: 0.5rem; }
-    .cta__banner p { color: var(--color-text-muted); font-size: 1.2rem; margin-bottom: 1rem; }
-    .cta__tagline { font-size: 1.4rem; color: var(--color-accent); }
-    .cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
     @media (max-width: 768px) {
       .hero__grid { grid-template-columns: 1fr; }
       .hero { min-height: auto; padding: 2rem 0 4rem; }
-      .cta__banner { padding: 2rem 1.5rem; }
-      .cta__banner h2 { font-size: 2rem; }
-      .cta__tagline { font-size: 1.1rem; }
     }
   </style>
 </Layout>

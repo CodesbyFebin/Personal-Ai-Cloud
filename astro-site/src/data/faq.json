@@ -1,7 +1,14 @@
 [
-  { "q": "Can I self‑host PersonalAI?", "a": "Yes – the full stack is open‑source and available as a Docker compose setup." },
-  { "q": "Does it work with Ollama?", "a": "Yes, you can connect any OpenAI‑compatible local model." },
-  { "q": "Can I use it with Cursor or Claude Code?", "a": "Yes – just point the base URL to your PersonalAI endpoint." },
-  { "q": "Is my data private?", "a": "All memory is encrypted; self‑hosted gives you complete control." },
-  { "q": "Does it support Hindi / Malayalam?", "a": "Yes – our RAG pipeline is multilingual." }
+  { "q": "What is PersonalAI.cloud?", "a": "A personal AI platform with persistent memory, available on WhatsApp, Android, and Web — with a self-hosted option for full control." },
+  { "q": "How does the persistent memory work?", "a": "Every conversation is embedded and stored in a pgvector database. Your AI retrieves relevant memories through RAG (retrieval-augmented generation) at query time — memories persist until you delete them." },
+  { "q": "Does the AI train on my data?", "a": "No — your conversations are never used to train the base model. RAG only retrieves your data at query time to answer you." },
+  { "q": "Can I self-host PersonalAI?", "a": "Yes — the full stack is open-source and ships as a Docker Compose setup (PostgreSQL + pgvector, Redis, a Next.js dashboard, and a LangChain-based agent engine)." },
+  { "q": "Does it work with Ollama or other local models?", "a": "Yes — point it at your local Ollama instance, or connect any OpenAI-compatible model." },
+  { "q": "Is my data private?", "a": "Yes. Memory and messages are encrypted at rest and in transit (AES-256), and data is hosted in AWS Mumbai (ap-south-1) unless you choose otherwise." },
+  { "q": "What languages are supported?", "a": "English, Hindi, Malayalam, and Tamil today, with more Indian languages on the roadmap." },
+  { "q": "Can I use PersonalAI on WhatsApp?", "a": "Yes — message your AI on WhatsApp directly. Conversations sync with the Web and Android apps." },
+  { "q": "What AI providers can I connect?", "a": "Bring your own key for OpenAI, Anthropic, Groq, Mistral, Gemini, DeepSeek, or NVIDIA NIM — or run fully local with Ollama." },
+  { "q": "Can I delete my memories?", "a": "Yes — delete individual memories or wipe everything from the dashboard at any time." },
+  { "q": "What's included in the free tier?", "a": "1 agent, 500 memory items, and WhatsApp & Web access — no credit card required." },
+  { "q": "Can I use it with Cursor or Claude Code?", "a": "Yes — point the base URL to your PersonalAI endpoint and it works like any OpenAI-compatible provider." }
 ]

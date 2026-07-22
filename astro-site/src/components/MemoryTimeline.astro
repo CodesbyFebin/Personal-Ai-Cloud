@@ -1,0 +1,56 @@
+---
+const memories = [
+  {
+    day: "Day 1",
+    platform: "WhatsApp",
+    you: "Remember I prefer summaries as bullet points.",
+    ai: "Got it — I'll format summaries with bullet points from now on."
+  },
+  {
+    day: "Day 14",
+    platform: "Web",
+    you: "Summarize today's meeting.",
+    ai: "Here's your summary:\n• Action item 1\n• Action item 2\n(formatted as bullet points, as you prefer)"
+  },
+  {
+    day: "Day 42",
+    platform: "Android",
+    you: "What was that action item from two weeks ago?",
+    ai: "You flagged \"Action item 1\" from your Day 14 meeting summary. Want the full context?"
+  }
+];
+---
+<section class="memory section section--alt" id="memory">
+  <div class="container">
+    <div class="memory__header">
+      <span class="section__eyebrow">Persistent Memory</span>
+      <h2 class="section__title">Memory That <span class="highlight">Actually Persists</span></h2>
+      <p class="section__lead">No re-explaining yourself. Your AI recalls context from WhatsApp, Android, or Web — whenever you left off, days or months later.</p>
+    </div>
+    <div class="memory__timeline">
+      {memories.map(m => (
+        <div class="memory__item">
+          <div class="memory__day">{m.day} · {m.platform}</div>
+          <div class="memory__content">
+            <p><strong>You:</strong> {m.you}</p>
+            <p><strong>AI:</strong> {m.ai.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="memory__note">Memories persist until you delete them — never used to train the base model. <a href="/memory">See how memory works →</a></p>
+  </div>
+</section>
+
+<style>
+  .memory__header { text-align: center; margin-bottom: 3rem; }
+  .memory__timeline { max-width: 700px; margin: 0 auto; position: relative; padding-left: 2rem; }
+  .memory__timeline::before { content: ''; position: absolute; left: 0.6rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--color-accent), transparent); }
+  .memory__item { position: relative; margin-bottom: 1.5rem; }
+  .memory__item::before { content: ''; position: absolute; left: -2rem; top: 0.4rem; width: 0.8rem; height: 0.8rem; background: var(--color-accent); border-radius: 50%; border: 3px solid var(--color-surface); }
+  .memory__day { font-size: 0.85rem; font-weight: 700; color: var(--color-accent); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .memory__content { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 0.8rem; padding: 1.2rem 1.5rem; }
+  .memory__content p { margin-bottom: 0.5rem; color: var(--color-text); font-size: 0.98rem; }
+  .memory__content p:last-child { margin-bottom: 0; }
+  .memory__note { text-align: center; color: var(--color-text-muted); margin-top: 2rem; font-size: 0.95rem; }
+</style>

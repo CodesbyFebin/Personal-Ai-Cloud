@@ -1,8 +1,9 @@
 ---
 import type { Provider } from '../../data/providers.json';
-const { name, type } = Astro.props;
+const { name, type, strength } = Astro.props;
 ---
 <div class="provider__card card">
   <div class="provider__name">{name}</div>
   <div class="provider__type">{type}</div>
+  {strength && <p class="provider__strength">{strength}</p>}
 </div>

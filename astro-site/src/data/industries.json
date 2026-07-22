@@ -1,0 +1,14 @@
+[
+  { "icon": "🎓", "name": "Students", "desc": "Study assistance, exam prep, and note recall that survives an entire semester." },
+  { "icon": "🚀", "name": "Founders", "desc": "Track investor conversations, decisions, and follow-ups without a separate CRM." },
+  { "icon": "💻", "name": "Developers", "desc": "An AI that remembers your stack, conventions, and past debugging sessions." },
+  { "icon": "⚖️", "name": "Legal", "desc": "Keep case context and client history across long-running matters." },
+  { "icon": "🏥", "name": "Healthcare", "desc": "Track appointment history and care notes with HIPAA-ready infrastructure." },
+  { "icon": "💰", "name": "Finance", "desc": "Recall expense patterns and past financial decisions over time." },
+  { "icon": "🏠", "name": "Real Estate", "desc": "Remember client preferences and property history across a long sales cycle." },
+  { "icon": "📚", "name": "Educators", "desc": "Lesson planning and student context that carries across terms." },
+  { "icon": "🛍️", "name": "Retail & Small Business", "desc": "Customer history and inventory notes in one running memory." },
+  { "icon": "🏗️", "name": "Construction & Ops", "desc": "Project timelines and supplier notes that don't live in someone's head." },
+  { "icon": "🔬", "name": "Research", "desc": "Literature notes and source recall across a long research project." },
+  { "icon": "🏛️", "name": "Government & Public Sector", "desc": "Citizen service context and records, hosted with DPDP-compliant data residency." }
+]

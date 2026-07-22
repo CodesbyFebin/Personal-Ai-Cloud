@@ -1,13 +1,13 @@
 {
   "supported": [
-    { "name": "OpenAI", "type": "API‑key" },
-    { "name": "Anthropic", "type": "API‑key" },
-    { "name": "Groq", "type": "API‑key" },
-    { "name": "Mistral", "type": "API‑key" },
-    { "name": "Ollama", "type": "Local" },
-    { "name": "DeepSeek", "type": "API‑key" },
-    { "name": "Gemini", "type": "OAuth" },
-    { "name": "NVIDIA NIM", "type": "API‑key" }
+    { "name": "OpenAI", "type": "API‑key", "strength": "Broad general-purpose models, largest ecosystem." },
+    { "name": "Anthropic", "type": "API‑key", "strength": "Strong reasoning, long context windows." },
+    { "name": "Groq", "type": "API‑key", "strength": "Very fast inference via LPU hardware." },
+    { "name": "Mistral", "type": "API‑key", "strength": "Efficient open-weight models." },
+    { "name": "Ollama", "type": "Local", "strength": "Runs fully on your own machine — no API key needed." },
+    { "name": "DeepSeek", "type": "API‑key", "strength": "Low-cost, competitive performance." },
+    { "name": "Gemini", "type": "OAuth", "strength": "Large context windows, native multimodal input." },
+    { "name": "NVIDIA NIM", "type": "API‑key", "strength": "Optimized inference microservices for NVIDIA GPUs." }
   ],
   "count": 8,
   "freeTiers": "90+ via integrations"

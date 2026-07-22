@@ -1,0 +1,45 @@
+---
+import comparison from '../data/ai-comparison.json';
+const { competitors, rows, note } = comparison;
+---
+<section class="comparison section">
+  <div class="container">
+    <div class="comparison__header">
+      <span class="section__eyebrow">Comparison</span>
+      <h2 class="section__title">PersonalAI vs <span class="highlight">General-Purpose AI</span></h2>
+      <p class="section__lead">These providers are also the models PersonalAI can route to — this compares the assistant layer, not the underlying model quality.</p>
+    </div>
+    <div class="comparison__table-wrap">
+      <table class="comparison__table">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">PersonalAI</th>
+            {competitors.map((c: string) => <th scope="col">{c}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row: any) => (
+            <tr>
+              <td><strong>{row.feature}</strong></td>
+              <td class="comparison__winner">{row.personalai}</td>
+              {competitors.map((c: string) => <td>{row.others[c] || '—'}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="comparison__note">{note}</p>
+  </div>
+</section>
+
+<style>
+  .comparison__header { text-align: center; margin-bottom: 3rem; }
+  .comparison__table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 1rem; }
+  .comparison__table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  .comparison__table th, .comparison__table td { padding: 0.9rem 1.1rem; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; white-space: nowrap; }
+  .comparison__table th { background: var(--color-surface); color: var(--color-text); font-weight: 600; }
+  .comparison__table tr:last-child td { border-bottom: none; }
+  .comparison__winner { background: rgba(201, 168, 76, 0.08); color: var(--color-accent); font-weight: 600; }
+  .comparison__note { text-align: center; color: var(--color-text-muted); font-size: 0.85rem; margin-top: 1.5rem; }
+</style>

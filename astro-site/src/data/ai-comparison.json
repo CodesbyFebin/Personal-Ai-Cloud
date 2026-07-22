@@ -1,0 +1,41 @@
+{
+  "competitors": ["ChatGPT", "Claude", "Gemini", "NotebookLM", "Perplexity", "Copilot"],
+  "note": "Comparison based on publicly documented features as of mid-2026. Provider features change frequently — check each provider's own docs for the current state.",
+  "rows": [
+    {
+      "feature": "Cross-platform persistent memory",
+      "personalai": "✅ WhatsApp, Android & Web synced",
+      "others": { "ChatGPT": "⚠️ Single account, opt-in", "Claude": "⚠️ Project-based", "Gemini": "⚠️ Limited rollout", "NotebookLM": "⚠️ Per-notebook only", "Perplexity": "❌ Session only", "Copilot": "❌ Session only" }
+    },
+    {
+      "feature": "Native WhatsApp integration",
+      "personalai": "✅ Native",
+      "others": { "ChatGPT": "❌", "Claude": "❌", "Gemini": "❌", "NotebookLM": "❌", "Perplexity": "❌", "Copilot": "❌" }
+    },
+    {
+      "feature": "Self-host option",
+      "personalai": "✅ Docker",
+      "others": { "ChatGPT": "❌", "Claude": "❌", "Gemini": "❌", "NotebookLM": "❌", "Perplexity": "❌", "Copilot": "❌" }
+    },
+    {
+      "feature": "Local LLM support",
+      "personalai": "✅ via Ollama",
+      "others": { "ChatGPT": "❌", "Claude": "❌", "Gemini": "❌", "NotebookLM": "❌", "Perplexity": "❌", "Copilot": "❌" }
+    },
+    {
+      "feature": "Data used for base-model training",
+      "personalai": "✅ Never",
+      "others": { "ChatGPT": "⚠️ Configurable — check settings", "Claude": "⚠️ Configurable — check settings", "Gemini": "⚠️ Configurable — check settings", "NotebookLM": "✅ Not used", "Perplexity": "⚠️ Configurable — check settings", "Copilot": "⚠️ Configurable — check settings" }
+    },
+    {
+      "feature": "Indian language support",
+      "personalai": "8+ native",
+      "others": { "ChatGPT": "✅ General multilingual", "Claude": "✅ General multilingual", "Gemini": "✅ General multilingual", "NotebookLM": "⚠️ Limited", "Perplexity": "✅ General multilingual", "Copilot": "✅ General multilingual" }
+    },
+    {
+      "feature": "Memory visualization (Recall Thread)",
+      "personalai": "✅",
+      "others": { "ChatGPT": "❌", "Claude": "❌", "Gemini": "❌", "NotebookLM": "❌", "Perplexity": "❌", "Copilot": "❌" }
+    }
+  ]
+}

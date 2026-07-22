@@ -1,32 +1,70 @@
 [
   {
-    "icon": "🎤",
-    "title": "Voice‑First Memory",
-    "desc": "Speak to capture memories – instantly transcribed and stored with context."
+    "icon": "🧠",
+    "title": "Persistent Memory",
+    "desc": "Your AI remembers preferences, facts, and context across days, months, and years — not just one session.",
+    "href": "/memory"
   },
   {
-    "icon": "💾",
-    "title": "Persistent Context",
-    "desc": "Across days, months, and years – your AI remembers everything."
+    "icon": "💬",
+    "title": "WhatsApp AI",
+    "desc": "Message your AI on WhatsApp like any contact. Full memory sync with Web and Android.",
+    "href": "/whatsapp"
+  },
+  {
+    "icon": "📱",
+    "title": "Android App",
+    "desc": "Native Android app with push notifications, so your AI reaches you the same way your other apps do.",
+    "href": "/android"
+  },
+  {
+    "icon": "📅",
+    "title": "Calendar & Tasks",
+    "desc": "An AI scheduler that reads your Google Calendar and manages your day around it.",
+    "href": "/calendar-assistant"
+  },
+  {
+    "icon": "📧",
+    "title": "Email Triage",
+    "desc": "Automatically sort, summarize, and draft replies for your inbox.",
+    "href": "/email-triage"
   },
   {
     "icon": "🌍",
-    "title": "Multi‑Platform",
-    "desc": "WhatsApp, Android, Web – one assistant everywhere."
+    "title": "Indian Languages",
+    "desc": "Native support for Hindi, Malayalam, and Tamil, with more languages on the roadmap.",
+    "href": "/use-cases"
+  },
+  {
+    "icon": "🎤",
+    "title": "Voice-First Memory",
+    "desc": "Speak to capture memories — instantly transcribed and stored with context."
+  },
+  {
+    "icon": "🔌",
+    "title": "Integrations",
+    "desc": "Connect Gmail, Google Calendar, Notion, Slack, Telegram, GitHub, Jira, Trello, Cursor, and VS Code.",
+    "href": "/integrations"
+  },
+  {
+    "icon": "🧩",
+    "title": "RAG & Vector Memory",
+    "desc": "Semantic search over your personal knowledge graph, powered by pgvector."
   },
   {
     "icon": "🔒",
-    "title": "Privacy & Self‑Host",
-    "desc": "Your data, your control. Self‑host option available."
+    "title": "Privacy & Self-Host",
+    "desc": "Your data, your control. Run the full stack on your own hardware with Docker.",
+    "href": "/self-hosted"
   },
   {
-    "icon": "🧠",
-    "title": "RAG & Vector Memory",
-    "desc": "Semantic search over your personal knowledge graph."
+    "icon": "🇮🇳",
+    "title": "India-First",
+    "desc": "Local languages, ₹ pricing, and data residency in AWS Mumbai (ap-south-1)."
   },
   {
     "icon": "⚡",
-    "title": "India‑First",
-    "desc": "Local languages (Hindi, Malayalam, Tamil) and ₹ pricing."
+    "title": "8+ AI Providers",
+    "desc": "Bring your own key for OpenAI, Anthropic, Groq, Mistral, Gemini, DeepSeek, NVIDIA NIM, or run local models via Ollama."
   }
 ]

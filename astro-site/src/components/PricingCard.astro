@@ -2,7 +2,7 @@
 import type { PricingTier } from '../../data/pricing.json';
 const { tier, price, features, cta, highlight = false } = Astro.props;
 ---
-<div class="pricing__card card {highlight ? 'highlight' : ''}">
+<div class:list={['pricing__card', 'card', { highlight }]}>
   <h3>{tier}</h3>
   <div class="pricing__price">
     <span class="amount">{price}</span>

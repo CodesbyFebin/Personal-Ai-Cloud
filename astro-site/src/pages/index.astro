@@ -1,67 +1,143 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import features from '../data/features.json';
+import providers from '../data/providers.json';
+import pricing from '../data/pricing.json';
+import FeatureCard from '../components/FeatureCard.astro';
+import ProviderCard from '../components/ProviderCard.astro';
+import PricingCard from '../components/PricingCard.astro';
 ---
+<Layout title="Your Personal AI, Everywhere You Are" description="One assistant that lives in WhatsApp, on Android, and in your browser. Persistent memory, privacy‑first.">
 
-<Layout title="PersonalAI - Your Personal AI Assistant" description="Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.">
-  <section class="max-w-3xl mx-auto px-6 py-20">
-    <div class="mb-8">
-      <div class="w-12 h-1 bg-[#C9A96E] mb-6"></div>
-      <h1 class="text-5xl font-bold mb-4" style="font-family: var(--font-serif);">Personal AI Assistant</h1>
-      <p class="text-xl text-stone-600 leading-relaxed">Your Personal AI, Everywhere You Are. Connect AI to WhatsApp, Android, and Web with persistent memory.</p>
-    </div>
-    <div class="prose prose-stone max-w-none">
-      <p class="text-stone-700 leading-relaxed mb-6">
-        personalai.cloud brings you the best of personal AI with persistent memory, multi-channel support, and enterprise-grade security.
-      </p>
-      <div class="grid md:grid-cols-2 gap-6 my-12">
-        <div class="p-6 rounded-xl border border-stone-200 bg-white">
-          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">WhatsApp Integration</h3>
-          <p class="text-stone-600 text-sm">Chat with your AI inside WhatsApp. No new apps needed.</p>
+  <section class="hero section">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="section__eyebrow">India's #1 Personal AI Platform</span>
+        <h1 class="section__title">Your Personal AI,<br /><span class="highlight">Everywhere You Are</span></h1>
+        <p class="section__lead">One assistant that lives in WhatsApp, on Android, and in your browser. Persistent memory, privacy‑first.</p>
+        <div class="hero__ctas">
+          <a href="https://app.personalai.cloud" class="btn btn--primary btn--lg">🚀 Start Free →</a>
+          <a href="/whatsapp" class="btn btn--outline btn--lg">Setup on WhatsApp</a>
         </div>
-        <div class="p-6 rounded-xl border border-stone-200 bg-white">
-          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Android App</h3>
-          <p class="text-stone-600 text-sm">Native Android app with FCM push notifications.</p>
-        </div>
-        <div class="p-6 rounded-xl border border-stone-200 bg-white">
-          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Persistent Memory</h3>
-          <p class="text-stone-600 text-sm">AI that remembers your life, preferences, and context.</p>
-        </div>
-        <div class="p-6 rounded-xl border border-stone-200 bg-white">
-          <h3 class="text-lg font-semibold mb-2" style="font-family: var(--font-serif);">Privacy First</h3>
-          <p class="text-stone-600 text-sm">End-to-end encryption. Self-hosted option available.</p>
+        <div class="hero__stats">
+          <span><strong>8+</strong> AI providers</span>
+          <span><strong>90+</strong> free tiers</span>
+          <span><strong>3</strong> channels</span>
         </div>
       </div>
-
-      <section class="bg-stone-100 rounded-2xl p-8 border border-stone-200 my-12">
-        <h2 class="text-2xl font-bold mb-4" style="font-family: var(--font-serif);">Frequently Asked Questions</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="font-semibold text-lg mb-2">What is PersonalAI?</h3>
-            <p class="text-stone-700">PersonalAI is an AI assistant platform that lives across WhatsApp, Android, and Web. It remembers your preferences, facts, and context across every conversation using persistent memory powered by pgvector.</p>
+      <div class="hero__visual">
+        <div class="arch-diagram">
+          <div class="arch-node">User</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">PersonalAI<br /><small>Gateway</small></div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-row">
+            <span class="arch-provider">OpenAI</span>
+            <span class="arch-provider">Anthropic</span>
+            <span class="arch-provider">Groq</span>
+            <span class="arch-provider">Ollama</span>
           </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-2">How does WhatsApp integration work?</h3>
-            <p class="text-stone-700">Connect your AI to WhatsApp Business API. Send messages to your WhatsApp number and your AI responds instantly. Setup takes 4 simple steps.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-2">Is my data private?</h3>
-            <p class="text-stone-700">Yes. All data is encrypted at rest and in transit. We offer a self-hosted option where you run everything on your own hardware with local LLMs via Ollama.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-2">What languages are supported?</h3>
-            <p class="text-stone-700">We support English, Hindi, Malayalam, Tamil, and many more. Our AI can understand and respond in multiple Indian languages.</p>
-          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">Response</div>
         </div>
-      </section>
-
-      <section class="bg-stone-100 rounded-2xl p-8 border border-stone-200">
-        <h3 class="text-2xl font-bold mb-4" style="font-family: var(--font-serif);">Get Started Today</h3>
-        <p class="text-stone-700 mb-6">Join thousands of users already using personalai.cloud to supercharge their productivity.</p>
-        <div class="flex flex-wrap gap-4">
-          <a href="/pricing" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">View Pricing</a>
-          <a href="/whatsapp" class="border border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:bg-stone-50 transition-colors">Setup WhatsApp</a>
-        </div>
-      </section>
+      </div>
     </div>
   </section>
+
+  <section class="features section section--alt" id="features">
+    <div class="container">
+      <div class="features__header">
+        <span class="section__eyebrow">Features</span>
+        <h2 class="section__title">Your AI, <span class="highlight">Upgraded</span></h2>
+        <p class="section__lead">Built for how you actually live and work.</p>
+      </div>
+      <div class="features__grid">
+        {features.map(f => <FeatureCard {...f} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="providers section" id="providers">
+    <div class="container">
+      <div class="providers__header">
+        <span class="section__eyebrow">Providers</span>
+        <h2 class="section__title">Your Choice of <span class="highlight">AI Brain</span></h2>
+        <p class="section__lead">8 providers supported. 90+ free tiers available.</p>
+      </div>
+      <div class="providers__grid">
+        {providers.supported.map(p => <ProviderCard {...p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing section section--alt" id="pricing">
+    <div class="container">
+      <div class="pricing__header">
+        <span class="section__eyebrow">Simple Pricing</span>
+        <h2 class="section__title">Start Free. <span class="highlight">Scale as You Grow.</span></h2>
+        <p class="section__lead">Transparent Indian pricing. No USD surprises.</p>
+      </div>
+      <div class="pricing__grid">
+        {pricing.map(t => <PricingCard {...t} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta section">
+    <div class="container cta__banner">
+      <h2>Ready to Build Your Personal AI?</h2>
+      <p>Join 1,000+ Indians who already use PersonalAI.cloud to remember, automate, and simplify their lives.</p>
+      <p class="cta__tagline"><strong>Made with AI in India. For India.</strong></p>
+      <div class="cta__actions">
+        <a href="/signup" class="btn btn--primary btn--lg">🚀 Start Free — No Credit Card</a>
+        <a href="/whatsapp" class="btn btn--outline btn--lg">📱 Setup on WhatsApp</a>
+         <a href="https://github.com/CodesbyFebin/Personal-Ai-Cloud" class="btn btn--outline btn--lg">★ Star on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hero { background: var(--color-bg); padding: 4rem 0 6rem; }
+    .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0 1.5rem; }
+    .hero__stats { display: flex; gap: 2rem; color: var(--color-text-muted); font-size: 0.95rem; flex-wrap: wrap; }
+    .hero__stats strong { color: var(--color-text); font-weight: 700; }
+    .hero__visual .arch-diagram { background: var(--color-card-bg); border-radius: 1.2rem; padding: 1.5rem; text-align: center; border: 1px solid var(--color-border); }
+    .arch-node { font-weight: 600; padding: 0.5rem; background: var(--color-surface); border-radius: 0.5rem; display: inline-block; margin: 0.3rem 0; }
+    .arch-arrow { color: var(--color-text-muted); font-size: 1.5rem; }
+    .arch-row { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin: 0.5rem 0; }
+    .arch-provider { background: var(--color-surface-alt); padding: 0.2rem 0.8rem; border-radius: 999px; font-size: 0.8rem; border: 1px solid var(--color-border); }
+    .features__header { text-align: center; margin-bottom: 3rem; }
+    .features__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .features__card { text-align: center; }
+    .features__icon { font-size: 3rem; margin-bottom: 1rem; }
+    .features__card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .features__card p { color: var(--color-text-muted); line-height: 1.7; }
+    .providers__header { text-align: center; margin-bottom: 3rem; }
+    .providers__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; }
+    .provider__card { text-align: center; }
+    .provider__name { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .provider__type { color: var(--color-text-muted); font-size: 0.85rem; }
+    .pricing__header { text-align: center; margin-bottom: 3rem; }
+    .pricing__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .pricing__card { text-align: center; }
+    .pricing__card.highlight { border-color: var(--color-accent); box-shadow: 0 0 30px rgba(201,168,76,0.1); }
+    .pricing__price { margin: 1rem 0; }
+    .pricing__price .amount { font-size: 2.5rem; font-weight: 700; }
+    .pricing__price .period { color: var(--color-text-muted); font-size: 1rem; }
+    .pricing__card ul { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; }
+    .pricing__card ul li { color: var(--color-text-muted); padding: 0.3rem 0; font-size: 0.9rem; }
+    .cta__banner { background: var(--color-surface-alt); border-radius: 2rem; padding: 4rem 2rem; text-align: center; border: 1px solid var(--color-border); }
+    .cta__banner h2 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    .cta__banner p { color: var(--color-text-muted); font-size: 1.2rem; margin-bottom: 1rem; }
+    .cta__tagline { font-size: 1.4rem; color: var(--color-accent); }
+    .cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    @media (max-width: 768px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding: 2rem 0 4rem; }
+      .cta__banner { padding: 2rem 1.5rem; }
+      .cta__banner h2 { font-size: 2rem; }
+      .cta__tagline { font-size: 1.1rem; }
+    }
+  </style>
 </Layout>

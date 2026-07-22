@@ -1,10 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Use Cases | personalai.cloud" description="Students, founders, professionals using PersonalAI.">
-  <article class="max-w-4xl mx-auto px-6 py-12">
-    <h1 class="text-5xl font-bold mb-6">Use Cases</h1>
-    <p class="text-xl text-stone-600 mb-8">Students, founders, professionals using PersonalAI.</p>
+<Layout title="Use Cases | personalai.cloud" description="PersonalAI helps students, founders, professionals, and teams automate their lives with persistent memory.">
+  <section class="max-w-5xl mx-auto px-6 py-12">
     <nav aria-label="Breadcrumb" class="mb-8">
       <ol class="flex items-center gap-2 text-sm text-stone-500">
         <li><a href="/" class="hover:text-stone-900">Home</a></li>
@@ -12,11 +10,43 @@ import Layout from '../layouts/Layout.astro';
         <li class="text-stone-900 font-medium">Use Cases</li>
       </ol>
     </nav>
+
+    <h1 class="text-5xl font-bold mb-4">Use Cases</h1>
+    <p class="text-xl text-stone-600 mb-10">From students to founders, PersonalAI adapts to how you work.</p>
+
     <div class="grid md:grid-cols-2 gap-6">
-      <a href="/student" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition"><h3 class="text-lg font-semibold mb-2">Students</h3><p class="text-stone-600 text-sm">AI study buddy for competitive exams.</p></a>
-      <a href="/founder" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition"><h3 class="text-lg font-semibold mb-2">Founders</h3><p class="text-stone-600 text-sm">Co-pilot for startups and business.</p></a>
-      <a href="/email-triage" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition"><h3 class="text-lg font-semibold mb-2">Email Triage</h3><p class="text-stone-600 text-sm">Automate your inbox.</p></a>
-      <a href="/calendar-assistant" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition"><h3 class="text-lg font-semibold mb-2">Calendar</h3><p class="text-stone-600 text-sm">Smart schedule management.</p></a>
+      <a href="/student" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">🎓 Students</h3>
+        <p class="text-stone-600 text-sm">AI study buddy for competitive exams. Persistent memory across subjects and months of prep.</p>
+      </a>
+      <a href="/founder" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">🚀 Founders</h3>
+        <p class="text-stone-600 text-sm">Co-pilot for startups. Capture ideas, manage investors, and automate follow-ups.</p>
+      </a>
+      <a href="/email-triage" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">📧 Email Triage</h3>
+        <p class="text-stone-600 text-sm">Automate your inbox. AI categorizes, drafts replies, and flags urgent messages.</p>
+      </a>
+      <a href="/calendar-assistant" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">📅 Calendar Assistant</h3>
+        <p class="text-stone-600 text-sm">Smart schedule management with context from your memory.</p>
+      </a>
+      <a href="/note-summarizer" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">📝 Note Summarizer</h3>
+        <p class="text-stone-600 text-sm">Turn long notes into concise summaries stored in your AI memory.</p>
+      </a>
+      <a href="/voice-notes" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">🎤 Voice Notes</h3>
+        <p class="text-stone-600 text-sm">Send voice notes on WhatsApp and get instant transcriptions + action items.</p>
+      </a>
+      <a href="/team-workspace" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">👥 Team Workspace</h3>
+        <p class="text-stone-600 text-sm">Share AI agents and memory across your team with role-based access.</p>
+      </a>
+      <a href="/api-access" class="block p-6 rounded-xl border border-stone-200 bg-white hover:shadow-md transition">
+        <h3 class="text-lg font-semibold mb-2">⚙️ API Access</h3>
+        <p class="text-stone-600 text-sm">Programmatic access for power users. Build custom automations with REST and MCP.</p>
+      </a>
     </div>
-  </article>
+  </section>
 </Layout>

@@ -1,51 +1,57 @@
 ---
-const links = [
-  { href: '/privacy-policy', label: 'Privacy' },
-  { href: '/terms', label: 'Terms' },
-  { href: '/security', label: 'Security' },
-  { href: '/contact', label: 'Contact' },
-];
 ---
-<footer class="border-t border-stone-200 bg-white mt-20">
-  <div class="max-w-7xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-4 gap-8">
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
       <div>
-        <div class="text-2xl font-bold mb-2" style="font-family: var(--font-serif);">
-          personalai<span style="color: var(--color-gold);">.cloud</span>
+        <div class="footer__brand">
+          <span style="color:var(--color-accent)">◆</span> PersonalAI.cloud
         </div>
-        <p class="text-sm text-stone-600">Your Personal AI, Everywhere You Are.</p>
+        <p class="footer__tagline">Your Personal AI, Everywhere You Are.</p>
       </div>
       <div>
-        <h4 class="font-semibold mb-3 text-stone-900">Product</h4>
-        <ul class="space-y-2 text-sm text-stone-600">
-          <li><a href="/whatsapp" class="hover:text-stone-900">WhatsApp</a></li>
-          <li><a href="/android" class="hover:text-stone-900">Android</a></li>
-          <li><a href="/pricing" class="hover:text-stone-900">Pricing</a></li>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/whatsapp">WhatsApp</a></li>
+          <li><a href="/android">Android</a></li>
+          <li><a href="/pricing">Pricing</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-semibold mb-3 text-stone-900">Resources</h4>
-      <ul class="space-y-2 text-sm text-stone-600">
-        <li><a href="/docs" class="hover:text-stone-900">Docs</a></li>
-        <li><a href="/blog" class="hover:text-stone-900">Blog</a></li>
-        <li><a href="/changelog" class="hover:text-stone-900">Changelog</a></li>
-        <li><a href="/llms.txt" class="hover:text-stone-900">LLMs.txt</a></li>
-        <li><a href="/llms-full.txt" class="hover:text-stone-900">LLMs Full</a></li>
-        <li><a href="/ai-policy.txt" class="hover:text-stone-900">AI Policy</a></li>
-        <li><a href="/ai.txt" class="hover:text-stone-900">AI</a></li>
-      </ul>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/changelog">Changelog</a></li>
+        </ul>
       </div>
       <div>
-        <h4 class="font-semibold mb-3 text-stone-900">Legal</h4>
-        <ul class="space-y-2 text-sm text-stone-600">
-          {links.map(link => (
-            <li><a href={link.href} class="hover:text-stone-900">{link.label}</a></li>
-          ))}
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
         </ul>
       </div>
     </div>
-    <div class="border-t border-stone-200 mt-12 pt-8 text-center text-sm text-stone-500">
-      © {new Date().getFullYear()} personalai.cloud. All rights reserved.
+    <div class="footer__bottom">
+      <p>© {new Date().getFullYear()} PersonalAI.cloud. All rights reserved.</p>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer { border-top: 1px solid var(--color-border); padding: 3rem 0 1.5rem; background: var(--color-surface); }
+  .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+  .footer__brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .footer__tagline { color: var(--color-text-muted); font-size: 0.9rem; }
+  .footer h4 { font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--color-text); }
+  .footer ul { list-style: none; padding: 0; }
+  .footer ul li { margin-bottom: 0.4rem; }
+  .footer ul li a { color: var(--color-text-muted); font-size: 0.9rem; transition: 0.2s; text-decoration: none; }
+  .footer ul li a:hover { color: var(--color-text); }
+  .footer__bottom { border-top: 1px solid var(--color-border); padding-top: 1.5rem; text-align: center; color: var(--color-text-muted); font-size: 0.85rem; }
+  @media (max-width: 768px) {
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>

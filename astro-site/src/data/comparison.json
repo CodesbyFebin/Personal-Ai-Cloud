@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "feature": "OpenAI API compatibility",
+      "personalai": "✅",
+      "others": { "9router": "✅", "LiteLLM": "✅", "CLIProxyAPI": "✅" }
+    },
+    {
+      "feature": "Local model support",
+      "personalai": "✅",
+      "others": { "9router": "⚠️", "LiteLLM": "✅", "CLIProxyAPI": "✅" }
+    },
+    {
+      "feature": "Persistent memory",
+      "personalai": "✅",
+      "others": { "9router": "❌", "LiteLLM": "⚠️", "CLIProxyAPI": "❌" }
+    },
+    {
+      "feature": "Self‑hosting",
+      "personalai": "✅",
+      "others": { "9router": "✅", "LiteLLM": "✅", "CLIProxyAPI": "✅" }
+    },
+    {
+      "feature": "MCP integration",
+      "personalai": "Available",
+      "others": { "9router": "❌", "LiteLLM": "Client", "CLIProxyAPI": "❌" }
+    }
+  ]
+}

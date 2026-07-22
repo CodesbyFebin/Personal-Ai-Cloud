@@ -1,10 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import integrations from '../data/integrations.json';
 ---
-<Layout title="Integrations | personalai.cloud" description="Connect Gmail, Calendar, Notion, Slack and more to your AI assistant.">
-  <article class="max-w-4xl mx-auto px-6 py-12">
-    <h1 class="text-5xl font-bold mb-6">Integrations</h1>
-    <p class="text-xl text-stone-600 mb-8">Connect Gmail, Calendar, Notion, Slack and more to your AI assistant.</p>
+<Layout title="Integrations | personalai.cloud" description="Connect Gmail, Calendar, Notion, Slack, Telegram, GitHub, Jira, Trello, Cursor, and VSCode to your AI assistant.">
+  <section class="max-w-5xl mx-auto px-6 py-12">
     <nav aria-label="Breadcrumb" class="mb-8">
       <ol class="flex items-center gap-2 text-sm text-stone-500">
         <li><a href="/" class="hover:text-stone-900">Home</a></li>
@@ -12,11 +11,26 @@ import Layout from '../layouts/Layout.astro';
         <li class="text-stone-900 font-medium">Integrations</li>
       </ol>
     </nav>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="p-6 rounded-xl border border-stone-200 bg-white"><h3 class="text-lg font-semibold mb-2">Gmail</h3><p class="text-stone-600 text-sm">AI reads and drafts emails for you.</p></div>
-      <div class="p-6 rounded-xl border border-stone-200 bg-white"><h3 class="text-lg font-semibold mb-2">Google Calendar</h3><p class="text-stone-600 text-sm">Smart schedule management.</p></div>
-      <div class="p-6 rounded-xl border border-stone-200 bg-white"><h3 class="text-lg font-semibold mb-2">Notion</h3><p class="text-stone-600 text-sm">Sync notes and databases automatically.</p></div>
-      <div class="p-6 rounded-xl border border-stone-200 bg-white"><h3 class="text-lg font-semibold mb-2">Slack</h3><p class="text-stone-600 text-sm">Team notifications and summaries.</p></div>
+
+    <h1 class="text-5xl font-bold mb-4">Integrations</h1>
+    <p class="text-xl text-stone-600 mb-10">Connect your favorite tools to PersonalAI. Your AI reads, writes, and acts on your behalf.</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {integrations.map(name => (
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="text-lg font-semibold mb-2">{name}</h3>
+          <p class="text-stone-600 text-sm">Connected to your AI assistant for seamless automation.</p>
+        </div>
+      ))}
     </div>
-  </article>
+
+    <div class="mt-16 p-8 rounded-2xl border border-stone-200 bg-white">
+      <h2 class="text-2xl font-bold mb-4">Need a custom integration?</h2>
+      <p class="text-stone-700 mb-6">We support REST APIs, webhooks, and MCP tools. Build your own integration in minutes.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/api-docs" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">View API Docs</a>
+        <a href="/mcp-server" class="border border-stone-300 text-stone-700 px-6 py-3 rounded-lg font-semibold hover:bg-stone-50 transition-colors">MCP Server</a>
+      </div>
+    </div>
+  </section>
 </Layout>

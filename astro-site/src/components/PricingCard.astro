@@ -1,0 +1,17 @@
+---
+import type { PricingTier } from '../../data/pricing.json';
+const { tier, price, features, cta, highlight = false } = Astro.props;
+---
+<div class="pricing__card card {highlight ? 'highlight' : ''}">
+  <h3>{tier}</h3>
+  <div class="pricing__price">
+    <span class="amount">{price}</span>
+    <span class="period">/month</span>
+  </div>
+  <ul>
+    {features.map(f => <li>✓ {f}</li>)}
+  </ul>
+  <a href={tier === 'Self‑Host' ? 'https://github.com/CodesbyFebin/Personal-Ai-Cloud' : 'https://app.personalai.cloud'} class="btn btn--primary">
+    {cta}
+  </a>
+</div>

@@ -1,0 +1,27 @@
+[
+  {
+    "tier": "Free",
+    "price": "₹0",
+    "features": ["1 agent", "500 memory items", "WhatsApp & Web access"],
+    "cta": "Start Free"
+  },
+  {
+    "tier": "Starter",
+    "price": "₹499",
+    "features": ["3 agents", "5,000 memory items", "Android app", "Local languages"],
+    "cta": "Start Starter",
+    "highlight": true
+  },
+  {
+    "tier": "Pro",
+    "price": "₹1,499",
+    "features": ["10 agents", "Unlimited memory", "API access", "Team workspace"],
+    "cta": "Start Pro"
+  },
+  {
+    "tier": "Self‑Host",
+    "price": "Free",
+    "features": ["Full Docker setup", "Use your own LLM", "100% privacy"],
+    "cta": "View GitHub"
+  }
+]

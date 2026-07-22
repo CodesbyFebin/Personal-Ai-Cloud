@@ -1,23 +1,43 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { fileURLToPath } from 'node:url';
+import { dirname, basename, join } from 'node:path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export async function getStaticPaths() {
-  const files = await Astro.glob('../../content/blog/**/*.{astro,md,mdx}');
+  const globFiles = Object.keys(import.meta.glob('../../content/blog/**/*.{astro,md,mdx}', { eager: true }));
+  const absFilePaths = new Map(
+    globFiles.map(file => {
+      const isAbsolute = file.startsWith('/');
+      const absolutePath = isAbsolute ? file : join(process.cwd(), 'src', file.replace(/^\.{2}[/\\](?:\.{2}[/\\])?/, ''));
+      const relativePath = isAbsolute
+        ? file.replace(/^.*?[/\\]src[/\\]content[/\\]blog[/\\]/, '').replace(/\.(astro|md|mdx)$/, '')
+        : file.replace(/^.*[/\\]content[/\\]blog[/\\]/, '').replace(/\.(astro|md|mdx)$/, '');
+      const slug = relativePath.replace(/\/index$/, '');
+      return [slug, absolutePath];
+    })
+  );
 
-  return files.map(file => {
-    const relativePath = file.replace(/^.*?\/src\/content\/blog\//, '');
-    const slug = relativePath.replace(/\/index$/, '').replace(/\.(astro|md|mdx)$/, '');
+  return globFiles.map(file => {
+    const fileName = basename(file);
+    const isAbsolute = file.startsWith('/');
+    const relativePath = isAbsolute
+      ? file.replace(/^.*?[/\\]src[/\\]content[/\\]blog[/\\]/, '').replace(/\.(astro|md|mdx)$/, '')
+      : file.replace(/^.*[/\\]content[/\\]blog[/\\]/, '').replace(/\.(astro|md|mdx)$/, '');
+    const slug = relativePath.replace(/\/index$/, '');
     const segments = slug.split('/');
+    const absPath = absFilePaths.get(slug) || file;
 
     let title = 'Blog';
     let description = '';
     let date = '2026-07-22';
 
-    if (file.endsWith('multi-channel.astro') || slug === 'multi-channel') {
+    if (fileName === 'multi-channel.astro' || slug === 'multi-channel') {
       title = 'Multi-Channel AI: The End of Fragmented Conversations';
       description = 'How PersonalAI.cloud synchronizes your WhatsApp, Android, and Web interactions seamlessly.';
       date = '2026-07-21';
-    } else if (file.endsWith('voice-first-interaction.astro') || slug === 'voice-first') {
+    } else if (fileName === 'voice-first-interaction.astro' || slug === 'voice-first') {
       title = 'Voice-First AI: Speaking Naturally in Hinglish and Regional Languages';
       description = 'Understanding how PersonalAI.cloud enables voice-first AI interactions in Indian languages and Hinglish.';
       date = '2026-07-22';
@@ -82,7 +102,7 @@ export async function getStaticPaths() {
         title,
         description,
         date,
-        file
+        file: absPath
       }
     };
   });
@@ -100,7 +120,7 @@ try {
   const { execSync } = await import('node:child_process');
   const commitDate = execSync(`git log -1 --format=%cI --date-order -- "${filePath}"`).toString().trim();
   if (commitDate) dateModified = commitDate.split('T')[0];
-} catch {
+} catch (e) {
   // fallback to published date
 }
 

@@ -1,9 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="About Us | personalai.cloud" description="Our mission to build personal AI for everyone.">
-  <article class="max-w-4xl mx-auto px-6 py-12">
+<Layout title="About Us | personalai.cloud" description="PersonalAI is building India's first personal AI platform with persistent memory, privacy-first design, and multilingual support.">
+  <section class="max-w-4xl mx-auto px-6 py-12">
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">About</li>
+      </ol>
+    </nav>
+
     <h1 class="text-5xl font-bold mb-6">About Us</h1>
-    <p class="text-xl text-stone-600 mb-8">Our mission to build personal AI for everyone.</p>
-  </article>
+    <p class="text-xl text-stone-600 mb-8">We're building the personal AI layer for India — one that remembers, understands, and acts on your behalf.</p>
+
+    <div class="prose prose-stone max-w-none space-y-6">
+      <p class="text-stone-700 leading-relaxed">
+        PersonalAI.cloud was founded with a simple belief: your AI should know you. Not just in a single session, but across days, months, and years. We're building persistent memory, multi-channel presence, and privacy-first architecture for the next billion users in India.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 my-10">
+        <div class="p-6 rounded-xl border border-stone-200 bg-white text-center">
+          <div class="text-4xl font-bold text-[#C9A96E] mb-2">8+</div>
+          <div class="text-stone-600 text-sm">AI providers supported</div>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white text-center">
+          <div class="text-4xl font-bold text-[#C9A96E] mb-2">3</div>
+          <div class="text-stone-600 text-sm">Channels: WhatsApp, Android, Web</div>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white text-center">
+          <div class="text-4xl font-bold text-[#C9A96E] mb-2">90+</div>
+          <div class="text-stone-600 text-sm">Free tiers available</div>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+      <p class="text-stone-700 leading-relaxed">
+        democratize personal AI for Indians. We believe AI should adapt to your language, your budget, and your privacy preferences — not the other way around.
+      </p>
+
+      <h2 class="text-3xl font-bold mb-4 mt-10">Meet the Team</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="font-semibold mb-1">Alex Rivera</h3>
+          <p class="text-stone-600 text-sm mb-3">Founder & CEO</p>
+          <a href="/alex-rivera" class="text-sm text-stone-900 underline">View profile</a>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="font-semibold mb-1">Priya Sharma</h3>
+          <p class="text-stone-600 text-sm mb-3">CTO</p>
+          <a href="/priya-sharma" class="text-sm text-stone-900 underline">View profile</a>
+        </div>
+        <div class="p-6 rounded-xl border border-stone-200 bg-white">
+          <h3 class="font-semibold mb-1">Rajesh Kumar</h3>
+          <p class="text-stone-600 text-sm mb-3">Lead Engineer</p>
+          <a href="/rajesh-kumar" class="text-sm text-stone-900 underline">View profile</a>
+        </div>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-4 mt-10">Open Source</h2>
+      <p class="text-stone-700 leading-relaxed">
+        We believe in transparency. Our core stack is open source and available on GitHub. Join our community of contributors building the future of personal AI.
+      </p>
+      <div class="mt-4">
+        <a href="https://github.com/CodesbyFebin/Personal-Ai-Cloud" class="inline-block bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">Star on GitHub</a>
+      </div>
+    </div>
+  </section>
 </Layout>

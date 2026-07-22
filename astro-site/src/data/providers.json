@@ -1,0 +1,14 @@
+{
+  "supported": [
+    { "name": "OpenAI", "type": "API‑key" },
+    { "name": "Anthropic", "type": "API‑key" },
+    { "name": "Groq", "type": "API‑key" },
+    { "name": "Mistral", "type": "API‑key" },
+    { "name": "Ollama", "type": "Local" },
+    { "name": "DeepSeek", "type": "API‑key" },
+    { "name": "Gemini", "type": "OAuth" },
+    { "name": "NVIDIA NIM", "type": "API‑key" }
+  ],
+  "count": 8,
+  "freeTiers": "90+ via integrations"
+}

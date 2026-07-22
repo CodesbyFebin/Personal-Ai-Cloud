@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import comparison from '../data/comparison.json';
+---
+<Layout title="PersonalAI vs Alternatives | personalai.cloud" description="See how PersonalAI compares to LiteLLM, 9router, and CLIProxyAPI on memory, self-hosting, and MCP support.">
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">Comparisons</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-5xl font-bold mb-4">PersonalAI vs Alternatives</h1>
+    <p class="text-xl text-stone-600 mb-10">How we stack up against LiteLLM, 9router, and CLIProxyAPI.</p>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border border-stone-200 rounded-xl overflow-hidden">
+        <thead>
+          <tr class="bg-stone-900 text-white">
+            <th class="text-left px-6 py-4">Feature</th>
+            <th class="text-center px-6 py-4">PersonalAI</th>
+            <th class="text-center px-6 py-4">LiteLLM</th>
+            <th class="text-center px-6 py-4">9router</th>
+            <th class="text-center px-6 py-4">CLIProxyAPI</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparison.categories.map((row, i) => (
+            <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
+              <td class="px-6 py-4 font-medium">{row.feature}</td>
+              <td class="text-center px-6 py-4">{row.personalai}</td>
+              <td class="text-center px-6 py-4">{row.others.LiteLLM}</td>
+              <td class="text-center px-6 py-4">{row.others['9router']}</td>
+              <td class="text-center px-6 py-4">{row.others['CLIProxyAPI']}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-12 p-8 rounded-2xl border border-stone-200 bg-white">
+      <h2 class="text-2xl font-bold mb-4">Why PersonalAI?</h2>
+      <ul class="space-y-3 text-stone-700">
+        <li>✅ Unified memory across WhatsApp, Android, and Web</li>
+        <li>✅ 8+ AI providers with automatic failover</li>
+        <li>✅ India-first with local language support</li>
+        <li>✅ Self-host with Docker or use our cloud</li>
+        <li>✅ MCP-native architecture for tool use</li>
+      </ul>
+      <div class="mt-6">
+        <a href="/pricing" class="inline-block bg-stone-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-stone-800 transition-colors">Compare Plans</a>
+      </div>
+    </div>
+  </section>
+</Layout>

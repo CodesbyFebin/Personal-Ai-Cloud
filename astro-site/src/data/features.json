@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "🎤",
+    "title": "Voice‑First Memory",
+    "desc": "Speak to capture memories – instantly transcribed and stored with context."
+  },
+  {
+    "icon": "💾",
+    "title": "Persistent Context",
+    "desc": "Across days, months, and years – your AI remembers everything."
+  },
+  {
+    "icon": "🌍",
+    "title": "Multi‑Platform",
+    "desc": "WhatsApp, Android, Web – one assistant everywhere."
+  },
+  {
+    "icon": "🔒",
+    "title": "Privacy & Self‑Host",
+    "desc": "Your data, your control. Self‑host option available."
+  },
+  {
+    "icon": "🧠",
+    "title": "RAG & Vector Memory",
+    "desc": "Semantic search over your personal knowledge graph."
+  },
+  {
+    "icon": "⚡",
+    "title": "India‑First",
+    "desc": "Local languages (Hindi, Malayalam, Tamil) and ₹ pricing."
+  }
+]

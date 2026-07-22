@@ -1,0 +1,3 @@
+Contact: security@personalai.cloud
+Preferred-Languages: en
+Policy: https://www.personalai.cloud/security-policy

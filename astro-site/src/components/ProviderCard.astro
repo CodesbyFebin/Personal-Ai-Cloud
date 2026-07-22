@@ -1,0 +1,8 @@
+---
+import type { Provider } from '../../data/providers.json';
+const { name, type } = Astro.props;
+---
+<div class="provider__card card">
+  <div class="provider__name">{name}</div>
+  <div class="provider__type">{type}</div>
+</div>

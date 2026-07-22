@@ -1,0 +1,7 @@
+[
+  { "q": "Can I self‑host PersonalAI?", "a": "Yes – the full stack is open‑source and available as a Docker compose setup." },
+  { "q": "Does it work with Ollama?", "a": "Yes, you can connect any OpenAI‑compatible local model." },
+  { "q": "Can I use it with Cursor or Claude Code?", "a": "Yes – just point the base URL to your PersonalAI endpoint." },
+  { "q": "Is my data private?", "a": "All memory is encrypted; self‑hosted gives you complete control." },
+  { "q": "Does it support Hindi / Malayalam?", "a": "Yes – our RAG pipeline is multilingual." }
+]

@@ -14,6 +14,7 @@
   { "slug": "integrations", "template": "Integration", "title": "Integrations", "description": "Connect Gmail, Calendar, Notion, Slack.", "keywords": ["integrations", "gmail", "calendar"] },
   { "slug": "use-cases", "template": "Usecase", "title": "Use Cases", "description": "Students, founders, professionals.", "keywords": ["use cases", "student", "founder"] },
   { "slug": "privacy", "template": "Privacy", "title": "Privacy & Security", "description": "Your data stays yours.", "keywords": ["privacy", "security", "encryption"] },
+  { "slug": "comparisons", "template": "Comparison", "title": "PersonalAI vs Alternatives", "description": "Compare PersonalAI with LiteLLM, 9router, and CLIProxyAPI.", "keywords": ["comparison", "alternatives", "vs"] },
   { "slug": "memory", "template": "Memory", "title": "Persistent Memory", "description": "AI that remembers everything.", "keywords": ["memory", "persistent memory", "rag"] },
   { "slug": "build", "template": "Build", "title": "Build Your Own AI", "description": "Create custom AI assistants.", "keywords": ["build", "custom ai", "create"] },
   { "slug": "templates", "template": "Templates", "title": "Agent Templates", "description": "Pre-built AI assistants.", "keywords": ["templates", "presets"] },

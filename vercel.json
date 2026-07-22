@@ -1,5 +1,6 @@
 {
   "rootDirectory": "astro-site",
+  "installCommand": "cd astro-site && npm install",
   "buildCommand": "npx astro build",
   "outputDirectory": "dist",
   "framework": "astro",

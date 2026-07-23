@@ -5,7 +5,7 @@ import providers from '../data/providers.json';
   <div class="container trustbar__inner">
     <span class="trustbar__label">Works with your choice of model</span>
     <div class="trustbar__logos">
-      {providers.supported.map(p => <span class="trustbar__logo">{p.name}</span>)}
+      {providers.map(p => <span class="trustbar__logo">{p.name}</span>)}
     </div>
   </div>
 </div>

@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const siteUrl = 'https://personalai.cloud';
+const topics = [
+  {
+    category: "By Audience",
+    items: [
+      { name: "Students", href: "/student", desc: "AI study buddy for competitive exams" },
+      { name: "Founders", href: "/founder", desc: "Co-pilot for startups and business" },
+      { name: "Developers", href: "/docs", desc: "API docs and SDK references" },
+      { name: "Businesses", href: "/use-cases", desc: "Team workflows and automation" }
+    ]
+  },
+  {
+    category: "By Capability",
+    items: [
+      { name: "WhatsApp AI", href: "/whatsapp", desc: "Chat with AI on WhatsApp" },
+      { name: "Android App", href: "/android", desc: "Native mobile experience" },
+      { name: "Voice Assistants", href: "/whatsapp", desc: "Voice-first AI interactions" },
+      { name: "Local Languages", href: "/hi", desc: "Hindi, Tamil, Malayalam support" }
+    ]
+  },
+  {
+    category: "By Use Case",
+    items: [
+      { name: "Email Triage", href: "/email-triage", desc: "Automate your inbox" },
+      { name: "Calendar Assistant", href: "/calendar-assistant", desc: "Smart schedule management" },
+      { name: "Memory AI", href: "/memory", desc: "Persistent memory across channels" },
+      { name: "Self-Hosting", href: "/self-hosted", desc: "Run PersonalAI on your hardware" }
+    ]
+  }
+];
+const faqs = [
+  { q: "What is a personal AI assistant?", a: "An AI application that lives across your devices—WhatsApp, Android, and Web—and remembers your context through persistent memory." },
+  { q: "Which AI providers does PersonalAI support?", a: "OpenAI, Anthropic, Groq, Mistral, Ollama, DeepSeek, Gemini, and NVIDIA NIM." },
+  { q: "Is my data private?", a: "Yes. Data is encrypted at rest and in transit. Self-hosted option gives you full control." },
+  { q: "Does it support Indian languages?", a: "Yes—Hindi, Malayalam, Tamil, Telugu, Bengali, and more." }
+];
+---
+<Layout
+  title="Topics | personalai.cloud"
+  description="Explore personal AI topics by audience, capability, and use case. From students to founders, WhatsApp to Android."
+  schema="webpage"
+  structuredData={[
+    {
+      '@type': 'WebSite',
+      url: 'https://personalai.cloud',
+      name: 'PersonalAI.Cloud',
+      description: 'India\'s #1 personal AI platform with persistent memory across WhatsApp, Android, and Web.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://personalai.cloud/search?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a }
+      }))
+    }
+  ]}
+>
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-sm text-stone-500">
+        <li><a href="/" class="hover:text-stone-900">Home</a></li>
+        <li>/</li>
+        <li class="text-stone-900 font-medium">Topics</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-4xl font-bold mb-4">Personal AI Topics</h1>
+    <p class="text-xl text-stone-600 mb-10">Deep dives into every aspect of personal AI—organized by audience, capability, and use case.</p>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {topics.map(group => (
+        <div class="rounded-xl border border-stone-200 bg-white p-6">
+          <h2 class="text-lg font-semibold mb-4">{group.category}</h2>
+          <ul class="space-y-3">
+            {group.items.map(item => (
+              <li>
+                <a href={item.href} class="block rounded-lg p-3 hover:bg-stone-50 transition">
+                  <div class="font-medium text-stone-900">{item.name}</div>
+                  <div class="text-sm text-stone-500">{item.desc}</div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -124,7 +124,7 @@ const structuredData = [
         <p class="section__lead">8 providers supported. 90+ free tiers available.</p>
       </div>
       <div class="providers__grid">
-        {providers.supported.map(p => <ProviderCard {...p} />)}
+        {providers.map(p => <ProviderCard {...p} />)}
       </div>
     </div>
   </section>

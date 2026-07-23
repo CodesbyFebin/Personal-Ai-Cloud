@@ -1,9 +1,21 @@
 ---
 import type { Provider } from '../../data/providers.json';
-const { name, type, strength } = Astro.props;
+const { name, type, strength, rating, reviewCount, pricing, website, features, badges, category } = Astro.props;
 ---
 <div class="provider__card card">
   <div class="provider__name">{name}</div>
-  <div class="provider__type">{type}</div>
+  {category && <div class="provider__type">{category}</div>}
   {strength && <p class="provider__strength">{strength}</p>}
+  {rating && <div class="provider__rating">⭐ {rating}/5 ({reviewCount?.toLocaleString()} reviews)</div>}
+  {pricing && <div class="provider__pricing">{pricing}</div>}
+  {features && features.length > 0 && (
+    <div class="provider__features">
+      {features.slice(0, 3).map(f => <span class="provider__feature">{f}</span>)}
+    </div>
+  )}
+  {badges && badges.length > 0 && (
+    <div class="provider__badges">
+      {badges.map(b => <span class={`provider__badge ${b.color || 'bg-slate-100 text-slate-700'}`}>{b.text}</span>)}
+    </div>
+  )}
 </div>
